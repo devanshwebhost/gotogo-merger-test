@@ -14,7 +14,7 @@
   <div class="container">
     <!-- Logo -->
     <a href="index.html" class="logo">
-      <img src="./assets/gotogo final logos/g2g corporate.png" alt="Logo" />
+      <img src="./assets/gotogo final logos/g2g roomsnvenues.png" alt="Logo" />
     </a>
 
     <!-- Menu -->
@@ -91,14 +91,14 @@
     <section
       class="relative bg-cover bg-center h-[80vh] flex items-center justify-center"
       style="
-        background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1');
+        background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1'); 
       "
     >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative text-center text-white z-10">
         <h1 class="text-4xl font-semibold mb-10">
-          Good Evening! <br />
-          Welcome to RoomsnVenues!!
+        <span id="dynamic-greeting"></span> <br>
+          Welcome to <span style="color: #f4be30;">RoomsnVenues!</span>
         </h1>
         <!-- <img src="logo.png" alt="Rooms n Venues" class="mx-auto w-40 mb-4"> -->
         <div class="space-x-4 mb-6">
@@ -307,7 +307,7 @@
     </section>
 
     <!-- Customer Review -->
-    <section class="py-16 px-6 lg:px-20 bg-blue-900 text-white text-center">
+    <section class="py-16 px-6 lg:px-20 bg-black text-white text-center">
       <h3 class="text-2xl font-bold mb-6">What People Say</h3>
       <p class="italic max-w-2xl mx-auto">
         “Having stayed in Maldives, they know all resorts very well. They
@@ -452,7 +452,7 @@
           ></textarea>
           <button
             type="submit"
-            class="w-full bg-[#f4be30] text-white py-2 rounded hover:bg-red-600"
+            class="w-full bg-[#f4be30] text-black py-2 rounded hover:bg-[#f4be30]"
           >
             Submit
           </button>
@@ -516,5 +516,82 @@
         </div>
       </div>
     </section>
+        <footer style="background-color: #000; color: #d1d5db; font-family: railway; font-size: 0.875rem;" id="contact">
+  <div style="max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; padding-top: 1.5rem; padding-bottom: 1.5rem;">
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem;">
+      
+      <div style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 0.25rem;">
+        <a href="tel:+917065650650" style="color: inherit; text-decoration: none; transition: color 0.15s;">
+          📞 +91 7065 650 650
+        </a>
+        <a href="mailto:care@gotogotravelsolutions.com" style="color: inherit; text-decoration: none; transition: color 0.15s;">
+          ✉️ care@gotogotravelsolutions.com
+        </a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 1.875rem; font-weight: lighter; color: #f4be30; margin:0; padding:0;">
+          GoToGo Travel Solutions
+        </h1>
+        <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem;">
+          © 2025 All Rights Reserved by GoToGo Travel Solutions LLP | Website developed by Infyplus Consulting
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 0.5rem;">
+        <span style="font-weight: 600; color: #fff;">Connect with us</span>
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.25rem;">
+          <a href="https://www.facebook.com/GOTOGO7065650650" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none;">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook" style="width: 1.25rem; height: 1.25rem; object-fit: contain;"/>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=917065650650&text=" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp" style="width: 1.5rem; height: 1.5rem; object-fit: contain;"/>
+          </a>
+          <a href="https://www.instagram.com/gotogo.in" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width: 1.25rem; height: 1.25rem; object-fit: contain;"/>
+          </a>
+          <a href="https://www.linkedin.com/company/gotogo-in/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none;">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width: 1.25rem; height: 1.25rem; object-fit: contain;"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  // Add this code inside your script.js file
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Find the placeholder element in your HTML
+    const greetingElement = document.getElementById('dynamic-greeting');
+
+    // Get the user's current date and time
+    const now = new Date();
+    
+    // Get the current hour (from 0 to 23)
+    const hour = now.getHours();
+
+    // Define the greeting message based on the hour
+    let greeting;
+
+    if (hour >= 5 && hour < 12) {
+        // Between 5 AM and 11:59 AM
+        greeting = "Good Morning!";
+    } else if (hour >= 12 && hour < 17) {
+        // Between 12 PM and 4:59 PM
+        greeting = "Good Afternoon!";
+    } else {
+        // 5 PM and onwards, or before 5 AM
+        greeting = "Good Evening!";
+    }
+
+    // Put the correct greeting into the HTML placeholder
+    if (greetingElement) {
+        greetingElement.textContent = greeting;
+    }
+    
+});
+</script>
   </body>
 </html>
