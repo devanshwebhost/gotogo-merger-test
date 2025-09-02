@@ -1,0 +1,881 @@
+/* --- General Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* --- Keyframe Animations --- */
+
+/* The Ken Burns (zoom in) effect */
+@keyframes kenburns {
+    0% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Animation for text elements to fade and slide in */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Hero Slider Container --- */
+.hero-slider {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden; /* Crucial for the zoom effect */
+    background-color: #333; /* Fallback color */
+}
+
+/* --- Individual Slides --- */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    /* Apply the zoom animation only to the active slide */
+    animation: kenburns 15s ease-out forwards;
+}
+
+/* --- Slide Content (Text & Button) --- */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    padding: 30px;
+    border-radius: 5px;
+}
+
+/* --- Text Styling --- */
+.slide-content .subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.slide-content .title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.slide-content .description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* --- Text Animation Control --- */
+.slide.active .slide-content > * {
+    opacity: 0; /* Start hidden */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger the animation for a nice effect */
+.slide.active .title { animation-delay: 0.2s; }
+.slide.active .description { animation-delay: 0.4s; }
+.slide.active .btn { animation-delay: 0.6s; }
+
+/* --- Button Styling --- */
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px #f4be30 solid;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-colored{
+    display: inline-block;
+    background-color: #f4be30;
+    border: 1px #f4be30 solid;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-colored-circle{
+display: inline-block;
+    background-color: transparent;
+    border: 2px #f4be30 solid;
+    color: black;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.itinerary-cta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+.btn-colored-circle:hover {
+    background-color: #f4be30;
+    color: black;
+    transform: translateY(-2px);
+}
+
+.btn:hover {
+    background-color: #f4be30;
+    color: black;
+    transform: translateY(-2px);
+}
+
+.btn i {
+    margin-left: 8px;
+}
+
+/* --- Navigation Arrows --- */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-arrow.prev {
+    left: 20px;
+}
+
+.nav-arrow.next {
+    right: 20px;
+}
+
+/* --- Side Contact Icons --- */
+.side-contact {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-contact .icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.side-contact .icon:hover {
+    transform: scale(1.1);
+}
+
+.side-contact .call {
+    background-color: #f44336; /* Red */
+}
+
+.side-contact .whatsapp {
+    background-color: #25D366; /* Green */
+}
+
+/* --- About Section Container --- */
+.about-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden; /* Hides the part of the wave that goes off-screen */
+}
+
+/* The light blue wave shape in the background */
+.about-section::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -15%;
+    width: 60%;
+    height: 120%;
+    background-color: #eaf6ff; /* A very light, pleasant blue */
+    border-radius: 45% / 50%; /* Creates the organic, wavy shape */
+    z-index: 0;
+}
+
+/* --- Main Content Grid --- */
+.container-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates the two equal columns */
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 1; /* Ensures content is above the background wave */
+}
+
+/* --- Text Content Styling --- */
+.text-content .subtitle {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.text-content .title {
+    color: #222;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.text-content .sub-heading {
+    color: #444;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.text-content .description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+
+/* --- Image Content Styling --- */
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes any extra space below the image */
+}
+
+/* --- Responsive Design for Smaller Screens --- */
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack the columns on top of each other */
+        text-align: center;
+    }
+
+    .image-content {
+        order: -1; /* Moves the image to the top on mobile */
+        margin-bottom: 40px;
+    }
+
+    .about-section::after {
+        width: 100%;
+        height: 50%;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        border-radius: 50% / 45% 45% 0 0; /* Adjust shape for the bottom */
+    }
+}
+
+/* --- Reusable Container (if not already present) --- */
+/* .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+} */
+
+/* --- Tour Info Section --- */
+.tour-info-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+/* Decorative dots on the left */
+.tour-info-section::before,
+.tour-info-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Top purple dot */
+.tour-info-section::before {
+    width: 10px;
+    height: 10px;
+    background-color: #8e44ad; /* Purple */
+    top: 20%;
+    left: 4%;
+}
+
+/* Bottom red dot */
+.tour-info-section::after {
+    width: 15px;
+    height: 15px;
+    background-color: #e74c3c; /* Red */
+    bottom: 20%;
+    left: 6%;
+}
+
+
+
+
+/* --- Main Content Grid --- */
+.tour-info-section .container {
+    display: grid;
+    grid-template-columns: 4fr 5fr; /* Makes the right column slightly wider */
+    align-items: center;
+    gap: 60px;
+}
+
+/* --- Image Column --- */
+.image-column img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Info Column Typography --- */
+.info-column .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50; /* Dark blue-grey */
+}
+
+.info-column .subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #7f8c8d; /* Grey */
+    margin-bottom: 25px;
+}
+
+.info-column .description {
+    font-size: 1rem;
+    color: #34495e; /* Softer dark blue-grey */
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* --- Booking Steps List --- */
+.booking-steps {
+    margin-bottom: 35px;
+}
+
+.booking-steps h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.booking-steps p {
+    font-size: 0.95rem;
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .tour-info-section .container {
+        grid-template-columns: 1fr; /* Stack columns */
+        gap: 40px;
+    }
+
+    .tour-info-section::before,
+    .tour-info-section::after {
+        display: none; /* Hide decorative dots on mobile */
+    }
+}
+
+
+
+/* --- Itinerary Section --- */
+
+.container-itinerary {
+    display: flex;
+    flex-direction: column;
+    
+}
+.itinerary-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* --- Itinerary Grid Layout --- */
+.itinerary-grid {
+    display: grid;
+    /* Creates 3 equal columns */
+    grid-template-columns: repeat(3, 1fr); 
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+}
+
+.itinerary-item {
+    padding: 40px 25px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* --- Item Content Styling --- */
+.item-icon {
+    font-size: 2.8rem;
+    color: #f4be30; /* Primary blue color */
+    margin-bottom: 20px;
+}
+
+.item-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.item-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* --- Bulleted List Styling --- */
+.itinerary-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    /* This trick centers the left-aligned text block */
+    display: inline-block; 
+}
+
+.itinerary-item li {
+    position: relative;
+    padding-left: 20px; /* Space for the custom bullet */
+    margin-bottom: 10px;
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Custom bullet point */
+.itinerary-item li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: #f4be30;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* --- Responsive Design --- */
+
+/* For Tablets */
+@media (max-width: 992px) {
+    .itinerary-grid {
+        /* Switch to 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+    .itinerary-grid {
+        /* Stack items in 1 column */
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    position: relative;
+    padding: 100px 0;
+    /* Replace with your background image URL */
+    background-image: url('https://images.unsplash.com/photo-1554224155-8d044b408253?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a nice parallax effect */
+}
+
+/* Dark blue overlay for text readability */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 53, 87, 0.7); /* A semi-transparent dark blue */
+    z-index: 1;
+}
+
+/* --- Main Content Grid --- */
+.contact-section .container {
+    position: relative;
+    z-index: 2; /* Ensures content is on top of the overlay */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+/* --- Left Column: Info Text --- */
+.contact-info {
+    color: #fff;
+    margin-left: 50px;
+}
+
+.contact-info .title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.contact-info .subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* --- Right Column: Form Container --- */
+.contact-form-container {
+    background-color: #fff;
+    padding: 40px 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin-right: 50px;
+}
+
+.contact-form-container h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Styling for input and textarea fields */
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* Fully rounded for inputs */
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight on focus */
+}
+
+.contact-form-container textarea {
+    border-radius: 20px; /* Less rounded for the textarea */
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* --- Button Styling (reusing .btn class) --- */
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .contact-section .container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+    .contact-info {
+        margin-bottom: 40px;
+    }
+    .contact-form-container h3 {
+        text-align: center;
+    }
+}
+
+
+/* --- Final Contact Section --- */
+.final-contact-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Optional: The small decorative dot */
+
+
+.final-contact-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- Image and Info Wrappers --- */
+.image-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+.info-wrapper .title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 15px;
+}
+
+.info-wrapper .query-text,
+.info-wrapper .phone-text {
+    font-size: 1.1rem;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+.info-wrapper .pricing-info {
+    margin: 30px 0;
+}
+
+.info-wrapper .pricing-info p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+}
+
+/* --- Custom Button Style --- */
+.contact-btn {
+    display: inline-block;
+    /* This is the custom background color you requested */
+    background-color: #f4be30; 
+    color: #212529; /* Black text for better contrast on yellow */
+    padding: 15px 40px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid #f4be30;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background-color: #ffca2c;
+    border-color: #ffca2c;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .final-contact-section .container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+
+    .image-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .final-contact-section::before {
+        display: none; /* Hide dot on mobile */
+    }
+}
+
+ /* --- Testimonial Section --- */
+        .testimonial-section {
+            background-color: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-size: 34px;
+            color: #333;
+            margin: 0 0 40px 0;
+            font-weight: 600;
+        }
+
+        /* --- Slider Container --- */
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            /* Set a minimum height to avoid layout shifts */
+            min-height: 400px; 
+        }
+
+        /* --- Individual Review Item --- */
+        .review-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+
+        /* --- Active State for Slider --- */
+        .review-item.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .review-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .review-item .quote {
+            position: absolute;
+            font-size: 100px;
+            color: #e9ecef;
+            font-family: 'Times New Roman', serif;
+            z-index: 1;
+        }
+
+        .review-item .quote-open {
+            top: 0;
+            left: 0;
+        }
+        
+        .review-item .quote-close {
+            bottom: 20px;
+            right: 0;
+        }
+
+        .review-item .review-text {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+            margin: 0 auto 20px;
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .review-item .reviewer-info {
+             position: relative;
+             z-index: 2;
+        }
+
+        .review-item .reviewer-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        
+        .review-item .reviewer-title {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* --- Pagination Dots --- */
+        .pagination-dots {
+            margin-top: 10px;
+        }
+
+        .pagination-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #ced4da;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination-dot.active {
+            background-color: #007bff;
+        }

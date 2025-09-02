@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rooms n Venues</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="navbar.css">
+  </head>
+  <body class="font-sans text-gray-800">
+    <!-- Hero Section -->
+         <!-- Navbar -->
+<header class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="./assets/gotogo final logos/g2g corporate.png" alt="Logo" />
+    </a>
+
+    <!-- Menu -->
+    <nav>
+      <ul class="desktop-links">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="fleet.html" class="menu-item"  >Fleet</a></li>
+        <li><a href="roomsnvenues.html" class="menu-item active">Rooms & Venues</a></li>
+        <li><a href="shuttletoagra.html" class="menu-item">Shuttle To Agra</a></li>
+        <li><a href="airport-shuttle.html" class="menu-item ">Airport Shuttle</a></li>
+        <li><a href="partner.html" class="menu-item">Partner</a></li>
+        <li><a href="#contact" class="menu-item">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- CSS -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .navbar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 1px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+
+  .desktop-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    /* margin-top: 1rem; */
+  }
+
+  .desktop-links li {
+    display: inline-block;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s ease;
+    padding: 6px 10px;
+  }
+
+  .menu-item:hover,
+  .menu-item.active {
+    color: #000; /* tumhara heading ka blue shade */
+    border-bottom: 2px solid #000;
+  }
+</style>
+    <section
+      class="relative bg-cover bg-center h-[80vh] flex items-center justify-center"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1');
+      "
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative text-center text-white z-10">
+        <h1 class="text-4xl font-semibold mb-10">
+          Good Evening! <br />
+          Welcome to RoomsnVenues!!
+        </h1>
+        <!-- <img src="logo.png" alt="Rooms n Venues" class="mx-auto w-40 mb-4"> -->
+        <div class="space-x-4 mb-6">
+          <a
+            href="#about"
+            class="px-6 py-2 border hover:border-[#f4be30] rounded hover:bg-[#f4be30] hover:text-black"
+            >READ MORE</a
+          >
+          <a
+            href="#quote"
+            class="px-6 py-2 border hover:border-[#f4be30] rounded hover:bg-[#f4be30] hover:text-black"
+            >GET A QUOTE</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 lg:px-20 bg-gray-50">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div>
+          <h2 class="text-[#f4be30] font-semibold uppercase tracking-wide mb-3">
+            – Tailor-made solutions for your big occasion
+          </h2>
+          <h3 class="text-3xl lg:text-4xl font-extrabold mb-5 text-gray-900">
+            Welcome to <span class="text-[#f4be30]">RoomsnVenues</span>
+          </h3>
+          <p class="mb-4 text-gray-700 leading-relaxed">
+            We are a team of hospitality professionals who strive for excellence
+            & client gratification. Having worked on both sides of the table, we
+            understand what to expect & what to deliver in the best possible
+            manner.
+          </p>
+          <p class="mb-8 text-gray-700 leading-relaxed">
+            Our revolutionary travel portal provides personalized services for
+            searching and booking hotels as per your requirements. We hunt
+            hotels, negotiate within your budget, and provide you the best
+            options. You choose & we book the roomsnvenues for you!
+          </p>
+
+          <!-- Stats -->
+          <div class="flex flex-wrap gap-10">
+            <div class="text-center">
+              <h4
+                class="text-5xl font-extrabold text-[#f4be30] mb-2 transition-transform transform hover:scale-110"
+              >
+                500+
+              </h4>
+              <p class="text-gray-800 font-medium">Satisfied Customers</p>
+            </div>
+            <div class="text-center">
+              <h4
+                class="text-5xl font-extrabold text-[#f4be30] mb-2 transition-transform transform hover:scale-110"
+              >
+                50+
+              </h4>
+              <p class="text-gray-800 font-medium">Professional Agents</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="flex justify-center">
+          <img
+            src="https://roomsnvenues.com/assets/img/illustrations/3.png"
+            alt="RoomsnVenues illustration"
+            class="w-[80%]"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="py-16 bg-gray-50 px-6 lg:px-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <img
+          src="https://roomsnvenues.com/assets/img/illustrations/4.png"
+          class="rounded-xl shadow-md"
+        />
+        <div>
+          <h4 class="text-[#f4be30] font-bold">WHAT WE DO</h4>
+          <h3 class="text-3xl font-bold mb-4">We help you plan your event</h3>
+          <h3 class="text-3xl mb-4">It's about you, not us!</h3>
+          <p class="mb-4">
+            RoomsnVenues understands your special requirements and fulfills them
+            in a way that suits you the best.
+          </p>
+          <p class="mb-6">
+            RoomsnVenues believes in making each occasion a delightful
+            experience for you.
+          </p>
+          <h4 class="text-2xl">
+            <span class="font-bold text-3xl">100+</span>Star Categorized Hotels,
+            Venues and <br />
+            Locations
+          </h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 px-6 lg:px-20 text-center bg-gray-50">
+      <h4 class="text-[#f4be30] font-semibold uppercase tracking-wide mb-2">
+        What we offer
+      </h4>
+      <h3 class="text-3xl lg:text-4xl font-extrabold mb-4">
+        Our <span class="text-[#f4be30]"> Services</span>
+      </h3>
+      <p class="mb-12 text-gray-600 max-w-3xl mx-auto text-base lg:text-lg">
+        We offer all services customized as per your requirements. Be it a
+        holiday with family or friends, business travel, or an event to
+        celebrate milestones — we are committed to delivering relevant &
+        affordable services. We believe in making our clients' special moments
+        cherished forever.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- Service Card -->
+        <div class="rounded-2xl overflow-hidden">
+          <img
+            src="https://roomsnvenues.com/assets/img/service/room.jpg"
+            alt="Rooms"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">Rooms</h4>
+            <p class="text-gray-600 text-sm text-justify">
+              "A stay to remember". We provide you the best options available
+              for your stay within the given budget.
+            </p>
+          </div>
+        </div>
+
+        <!-- Service Card -->
+        <div class="rounded-2xl overflow-hidden">
+          <img
+            src="https://roomsnvenues.com/assets/img/service/venue.jpg"
+            alt="Venues"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">Venues</h4>
+            <p class="text-gray-600 text-sm text-justify">
+              "Enjoy your event & leave the rest to us". You choose a venue or
+              give us the requirement & we make things happen for you in your
+              budgets. We plan, book and facilitate conferences, seminars,
+              meetings, weddings, birthdays, engagements
+            </p>
+          </div>
+        </div>
+
+        <!-- Service Card -->
+        <div class="rounded-2xl overflow-hidden">
+          <img
+            src="https://roomsnvenues.com/assets/img/service/holiday-packages.jpg"
+            alt="Holiday Packages"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">Holiday Packages</h4>
+            <h5 class="text-left">DMC:Zanzibar</h5>
+            <p class="text-gray-600 text-sm text-justify">
+              We promise Matchless services both in pricing and quality.
+              Planning a holiday can be time & energy consuming. We combine our
+              unsurpassed knowledge with exceptional special offers, and we take
+              care of every detail to create a holiday as unique as you are. We
+              are the DMC for Zanzibar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-16 bg-gray-50 px-6 lg:px-20 text-center">
+      <h3 class="text-2xl lg:text-3xl font-extrabold mb-10">
+        Why <span class="text-[#f4be30]"> Choose Us</span>
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-6">
+        <div class="flex flex-col items-center">
+          <span class="text-red-500 text-4xl mb-5"><img src="https://roomsnvenues.com/assets/img/icon/select.png" alt=""></span>
+          <p>Select Venues</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-red-500 text-4xl mb-5"><img src="https://roomsnvenues.com/assets/img/icon/transparency.png" alt=""></span>
+          <p>Transparency</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-red-500 text-4xl mb-5"><img src="https://roomsnvenues.com/assets/img/icon/value.png" alt=""></span>
+          <p>Value For Money</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-red-500 text-4xl mb-5"><img src="https://roomsnvenues.com/assets/img/icon/select.png" alt=""></span>
+          <p>Convenient</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-red-500 text-4xl mb-5"><img src="https://roomsnvenues.com/assets/img/icon/relax.png" alt=""></span>
+          <p>Hassle Free</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-red-500 text-4xl mb-5"><img src="https://roomsnvenues.com/assets/img/icon/dependable.png" alt=""></span>
+          <p>Dependable</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Review -->
+    <section class="py-16 px-6 lg:px-20 bg-blue-900 text-white text-center">
+      <h3 class="text-2xl font-bold mb-6">What People Say</h3>
+      <p class="italic max-w-2xl mx-auto">
+        “Having stayed in Maldives, they know all resorts very well. They
+        suggested the best options within budget. Twice we booked holidays
+        through them and also organized a family event — it was seamless!”
+      </p>
+      <p class="mt-4 font-semibold">- Ankur Malik</p>
+    </section>
+
+    <!-- FAQ + Contact Form -->
+    <section class="py-16 px-6 lg:px-20 grid lg:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-2xl font-bold mb-6">Answer & Questions</h3>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            What is RoomsnVenues?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            RoomsnVenues.com is an online and offline booking portal with wide
+            range of rooms and venues available in Delhi NCR, Gurgaon, Noida,
+            Faridabad, and Ghaziabad along with International holiday packages.
+            At RoomsnVenues, we connect our customers with the best rooms and
+            venues in their city based on their unique requirements so that they
+            can get the ideal deal for their event. We believe that online room
+            and venue booking is just as personal as offline venue booking,
+            except much simpler and our goal is to provide hassle-free online
+            venue booking experience to our customers, all the way from browsing
+            and shortlisting venues to booking the final one.
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            An upcoming event:How can RoomsnVenues help?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            RoomsnVenues helps you plan your event without hassles by letting
+            you explore your room and/or venue options based on your unique
+            requirements and connecting you to the right Hotel/venue making the
+            search convenient for you. We help you with plan your event with
+            three things: <br />
+
+            ● Find rooms/venues/packages you may not know of, based on your
+            requirements. <br />
+
+            ● Get availability of multiple shortlisted rooms/venues/packages in
+            one go without you having to call and visit all venue options to
+            confirm availability and receive package details. <br />
+
+            ● Get negotiated prices for your shortlisted venues/vendors and
+            enable you to review and compare each shortlisted venue, helping you
+            make an informed and right decision.
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            Are you an even planner?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            No, we do not plan events. Instead, we empower you to plan your event hassle-free through the use of technology, comprehensive and current information of rooms/ venues and packages.
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            How can i get in touch with you?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            You click here here to submit your event details or call us on 971-190-4924 or
+            7065-650-650. You can also write to us at info@RoomsnVenues.com for any event-related queries and our event experts will contact you within 24 hours.
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            What kind of events do you cater to?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            You name it, we have it! <br> <br>
+            We help you book rooms/venues/packages for all sorts of events ranging from Social Gatherings like Birthday Parties, Bachelor Parties, Weddings, to Corporate Events like Conferences, Team Parties, and Meetings. To know more, click here.
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            My venue is finalised, how do i pay the booking amount?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            You pay the booking amount directly to RoomsnVenues. Once you have paid the booking amount, your booking on the selected date is 100% confirmed!
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            How can i make changes or cancel my booking?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            The changes/cancellations can be made according to the terms and conditions of the venue you have booked.
+          </p>
+        </details>
+        <details class="mb-4">
+          <summary class="cursor-pointer font-semibold">
+            When can we contact you?
+          </summary>
+          <p class="mt-2 text-gray-600">
+            We offer a dedicated support service to our customers. In case you have any urgent requirements or if you are facing any issues with your booking for Rooms/ Venues/ Packages, our event experts are available from 9 am to 9 pm every day at 7065-650-650.
+          </p>
+        </details>
+      </div>
+
+      <div id="quote" class="bg-gray-50 p-6 rounded-xl shadow-md">
+        <h3 class="text-xl font-bold mb-4">Tell us your requirements</h3>
+        <form class="space-y-4">
+          <input
+            type="text"
+            placeholder="Name"
+            class="w-full border rounded p-2"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            class="w-full border rounded p-2"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Phone"
+            class="w-full border rounded p-2"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Event Location"
+            class="w-full border rounded p-2"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Event Date (dd-mm-yyyy)"
+            class="w-full border rounded p-2"
+            required
+          />
+          <textarea
+            placeholder="Share more details..."
+            class="w-full border rounded p-2"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-[#f4be30] text-white py-2 rounded hover:bg-red-600"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-16 px-6 lg:px-20 bg-[#f8f8ff]">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-10 items-center">
+          <!-- Card 1 -->
+          <div class="flex flex-col items-center group">
+            <img
+              src="https://roomsnvenues.com/assets/img/icon/efficiency.png"
+              alt="Efficiency"
+              class="w-50 mb-4"
+            />
+            <h4 class="font-semibold text-gray-700">Efficiency</h4>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex flex-col items-center group">
+            <img
+              src="https://roomsnvenues.com/assets/img/icon/compassion.png"
+              alt="Compassion"
+              class="w-50 mb-4"
+            />
+            <h4 class="font-semibold text-gray-700">Compassion</h4>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flex flex-col items-center group">
+            <img
+              src="https://roomsnvenues.com/assets/img/icon/consistency.png"
+              alt="Consistency"
+              class="w-50 mb-4"
+            />
+            <h4 class="font-semibold text-gray-700">Consistency</h4>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flex flex-col items-center group">
+            <img
+              src="https://roomsnvenues.com/assets/img/icon/respect.png"
+              alt="Respect"
+              class="w-50 mb-4"
+            />
+            <h4 class="font-semibold text-gray-700">Respect</h4>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="flex flex-col items-center group">
+            <img
+              src="https://roomsnvenues.com/assets/img/icon/safety.png"
+              alt="Safety"
+              class="w-50 mb-4"
+            />
+            <h4 class="font-semibold text-gray-700">Safety</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

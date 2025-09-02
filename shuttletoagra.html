@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking Header</title>
+    <link rel="stylesheet" href="style-shuttle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+
+      <!-- navbar  -->
+       <header class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="./assets/gotogo final logos/g2g corporate.png" alt="Logo" />
+    </a>
+
+    <nav>
+      <ul class="desktop-links">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="fleet.html" class="menu-item"  >Fleet</a></li>
+        <li><a href="roomsnvenues.html" class="menu-item ">Rooms & Venues</a></li>
+        <li><a href="shuttletoagra.html" class="menu-item active">Shuttle To Agra</a></li>
+        <li><a href="airport-shuttle.html" class="menu-item ">Airport Shuttle</a></li>
+        <li><a href="partner.html" class="menu-item">Partner</a></li>
+        <li><a href="#contact" class="menu-item">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- CSS -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .navbar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 1px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+
+  .desktop-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    /* margin-top: 1rem; */
+  }
+
+  .desktop-links li {
+    display: inline-block;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s ease;
+    padding: 6px 10px;
+  }
+
+  .menu-item:hover,
+  .menu-item.active {
+    color: #000; /* tumhara heading ka blue shade */
+    border-bottom: 2px solid #000;
+  }
+</style>
+
+<!-- Menu -->
+    <header class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2071&auto=format&fit=crop');">
+            <div class="slide-content">
+                <p class="subtitle">CALL US FOR SOLO TRAVELER $ USD 160*</p>
+                <h1 class="title">FOR BOOKING CALL US</h1>
+                <p class="description">GREAT SUPPORT FOR HIGHLY SUGGESTED TRIP WITH LOTS OF OUR CUSTOMER</p>
+                <a href="tel:+917065650650" class="btn">CALL NOW <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop');">
+            <div class="slide-content">
+                <p class="subtitle">PLAN YOUR TRAVEL WITH US</p>
+                <h1 class="title">SHUTTLE TO AGRA</h1>
+                <p class="description">BOOK YOUR RIDE & ENJOY WONDER OF THE WORLD @ FLAT FEE $100.</p>
+                <a href="tel:+917065650650" class="btn">VIEW PACKAGES <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="tel:+917065650650" class="btn-colored">BOOK YOUR TRIP NOW <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://mountainkick.com/wp-content/uploads/2016/10/mobile-india.png');">
+            <div class="slide-content">
+                <p class="subtitle">CONTACT US NOW</p>
+                <h1 class="title">VIEW PACKAGES</h1>
+                <p class="description">amazing & wonderful Taj explore with us @ flat fee $100.</p>
+                <a href="tel:+917065650650" class="btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <button class="nav-arrow prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="nav-arrow next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+    </header>
+
+    <div class="side-contact">
+        <a href="tel:+917065650650" class="icon call">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/917065650650" class="icon whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <section class="about-section">
+    <div class="container-header">
+        <div class="text-content">
+            <p class="subtitle">About Us</p>
+            <h2 class="title">BOOK YOUR AGRA TRIP</h2>
+            <h3 class="sub-heading">Tour Plan Delhi Agra Same Day Trip Only At The Moment</h3>
+            <p class="description">
+                Visiting India for the first time for a short trip and want to make the
+                best of it? Don't worry! Same Day Agra tour has got everything
+                covered for you just so that you can have one of the best trips in the
+                two most beautiful cities of India; Agra and Delhi.
+            </p>
+            <a href="#" class="btn-colored">Book Your Trip Now</a>
+        </div>
+
+        <div class="image-content">
+            <img src="https://shuttletoagra.com/wp-content/uploads/2020/04/l.png" alt="Happy traveler looking at his phone">
+        </div>
+    </div>
+</section>
+
+<section class="tour-info-section">
+    <div class="container">
+        <div class="image-column">
+             <img src="https://shuttletoagra.com/wp-content/uploads/2020/04/LLLL.jpg" alt="Family with luggage ready for a tour">
+        </div>
+
+        <div class="info-column">
+            <h2 class="title">Agra Tour</h2>
+            <h3 class="subtitle">Book With Us</h3>
+            <p class="description">
+                Delhi Agra Same Day' tour takes you onto this exciting and amazing journey of
+                beautiful monuments, historic cities and cultural richness of the two most famous
+                cities of India; one being the capital city of India and other the home to the seven
+                wonders of the world, Taj Mahal.
+            </p>
+
+            <div class="booking-steps">
+                <h4>How to book Agra Tour Package?</h4>
+                <p>Call / Whatsapp @ +91 70 65 650650</p>
+                <p>Request a Call Back give Missed Call @ +91 70 65 650650</p>
+                <p>Send an email to info@shuttletoagra.com</p>
+                <p>Ask for a Payment link to pay online through a secured payment gateway.</p>
+                <p>Get a confirmation email or SMS from ShuttletoAgra.com.</p>
+                <p>Receive Driver details on SMS or email 2 hours before the Agra Package.</p>
+                <p>Show the SMS/Email to the driver.</p>
+                <p>Receive a handy city guide cum plan for the tour.</p>
+                <p>Begin your NCR to Agra Tour Package.</p>
+            </div>
+            
+            <a href="#" class="btn-colored-circle">Book Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="itinerary-section">
+    <div class="container">
+        <h2 class="section-title">Tour Itinerary & Day Plan (Tentative)</h2>
+
+        <div class="itinerary-grid">
+            <div class="itinerary-item">
+                <i class="fa-solid fa-clock item-icon"></i>
+                <h3 class="item-title">Timing</h3>
+                <p class="item-subtitle">Departure</p>
+                <ul>
+                    <li>According to timing</li>
+                    <li><b>06:00</b> Hrs. Departure from hotel to Taj Mahal (Agra)</li>
+                </ul>
+            </div>
+
+            <div class="itinerary-item">
+                <i class="fa-solid fa-list-check item-icon"></i>
+                <h3 class="item-title">Break</h3>
+                <p class="item-subtitle">Refreshments</p>
+                <ul>
+                    <li><b>07:15</b> Hrs. Break for refreshments at expressway 30 mins</li>
+                    <li><b>07:45</b> Hrs. Departure from breakfast point</li>
+                </ul>
+            </div>
+
+            <div class="itinerary-item">
+                <i class="fa-solid fa-location-arrow item-icon"></i>
+                <h3 class="item-title">Arrival</h3>
+                <p class="item-subtitle">Agra Fort</p>
+                <ul>
+                    <li><b>10:00</b> Hrs. Arrival at Agra Fort 90 mins</li>
+                    <li><b>11:30</b> Hrs. Departure from Agra Fort</li>
+                </ul>
+            </div>
+
+            <div class="itinerary-item">
+                <i class="fa-solid fa-bag-shopping item-icon"></i>
+                <h3 class="item-title">Break for shopping</h3>
+                <p class="item-subtitle">Taj Mahal</p>
+                <ul>
+                    <li><b>11:30</b> Hrs. Break for shopping 30 mins</li>
+                    <li><b>12:30</b> Hrs. Departure from shopping point</li>
+                </ul>
+                </div>
+
+            <div class="itinerary-item">
+                <i class="fa-solid fa-bullhorn item-icon"></i>
+                <h3 class="item-title">Break For Lunch</h3>
+                <p class="item-subtitle">Refreshment</p>
+                <ul>
+                    <li><b>12:45</b> Hrs. Break for lunch 90 mins</li>
+                    <li><b>14:15</b> Hrs. Departure from lunch point</li>
+                </ul>
+            </div>
+
+            <div class="itinerary-item">
+                <i class="fa-solid fa-mosque item-icon"></i>
+                <h3 class="item-title">Taj Mahal</h3>
+                <p class="item-subtitle">After Visiting Agra Fort</p>
+                <ul>
+                    <li><b>14:30</b> Hrs. Hrs. Arrival at Taj Mahal 120 mins</li>
+                    <li><b>16:30</b> Hrs. Departure from Taj Mahal</li>
+                    <li><b>20:00</b> Hrs. Return to hotel</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="itinerary-cta">
+          <a href="#" class="btn-colored-circle">Still Have A Question Call Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-info">
+            <h2 class="title">Fill Your Details</h2>
+            <p class="subtitle">Our Customer Care Executive Will Assist You Shortly</p>
+        </div>
+
+        <div class="contact-form-container">
+            <form action="#" method="POST">
+                <h3>Contact Us Now</h3>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email*" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone*" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message*" required></textarea>
+                </div>
+                <button type="submit" class="btn-colored">Submit Now</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- packages  -->
+  <div style="width: 100%; padding: 50px 0;">
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="margin: 0; font-size: 36px; font-weight: 600;">Our Packages</h1>
+            <p style="margin: 5px 0 0; font-size: 18px; color: #666;">Plans Table</p>
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: flex-start; gap: 30px; flex-wrap: wrap; padding: 0 20px;">
+
+            <div style="width: 400px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden;">
+                <div style="background-color: #f4be30; color: black; padding: 15px; font-size: 22px; font-weight: bold;">
+                    $USD 175*
+                </div>
+                <div style="background-color: white;">
+                    <h2 style="font-size: 28px; padding: 30px 20px; margin: 0;">Solo Traveler With Car</h2>
+                    <div style="background-color: #f8f9fa; padding: 15px 20px; border-top: 1px solid #e9ecef; color: #555;">
+                        Delhi NCR / Jaipur to Agra
+                    </div>
+                    <div style="background-color: #f8f9fa; padding: 15px 20px; border-top: 1px solid #e9ecef; color: #555;">
+                        Agra Fort Visit
+                    </div>
+                    <div style="background-color: #f8f9fa; padding: 15px 20px; border-top: 1px solid #e9ecef; color: #555;">
+                        At Disposal
+                    </div>
+                    <div style="padding: 30px;">
+                        <a href="#" style="background: linear-gradient(to right, #f4be30, #f4b006); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
+                            BOOK NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="width: 400px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden;">
+                <div style="background-color: #f4be30; color: black; padding: 15px; font-size: 22px; font-weight: bold;">
+                    $USD 100*
+                </div>
+                <div style="background-color: white;">
+                    <h2 style="font-size: 28px; padding: 30px 20px; margin: 0;">Package Tour Per Seat</h2>
+                    <div style="background-color: #f8f9fa; padding: 15px 20px; border-top: 1px solid #e9ecef; color: #555;">
+                        12 years and above: Full charge
+                    </div>
+                    <div style="background-color: #f8f9fa; padding: 15px 20px; border-top: 1px solid #e9ecef; color: #555;">
+                        5 - 11 years child: Half charge
+                    </div>
+                    <div style="background-color: #f8f9fa; padding: 15px 20px; border-top: 1px solid #e9ecef; color: #555;">
+                        4 years and under: Free
+                    </div>
+                    <div style="padding: 30px;">
+                        <a href="#" style="background: linear-gradient(to right, #f4be30, #f4be30); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
+                            BOOK NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="padding: 30px 0 0 8%; font-size: 14px; color: #444;">
+            *T&C Apply
+        </div>
+
+    </div>
+
+    <section class="final-contact-section">
+    <div class="container">
+        <div class="image-wrapper">
+            <img src="./assets/image.png" alt="Group of tourists with luggage">
+        </div>
+
+        <div class="info-wrapper">
+            <h2 class="title">Contact Us</h2>
+            <p class="query-text">For Pre Booking /Bulk Query,</p>
+            <p class="phone-text">Call Us +91-7065650650</p>
+
+            <div class="pricing-info">
+                <p>12 years+ : full price</p>
+                <p>5-11 years : half price</p>
+                <p>4 years and under : free</p>
+            </div>
+
+            <a href="#" class="contact-btn">CONTACT NOW</a>
+        </div>
+    </div>
+</section>
+
+<!-- customers review  -->
+    <div class="testimonial-section">
+        <h2>Testimonials</h2>
+
+        <div class="testimonial-slider">
+
+            <div class="review-item">
+                <img src="https://shuttletoagra.com/wp-content/uploads/2019/05/client-1.jpg" alt="Reviewer John Smith">
+                <span class="quote quote-open">&#8220;</span>
+                <p class="review-text">
+                    Taj Mahal is incredible. It's a must see if you're nearby. We had really an amazing time there. Our guide, Ravi, was amazing. He is very passionate about Taj Mahal and shared with us all the knowledge he has about it.
+                </p>
+                <div class="reviewer-info">
+                    <p class="reviewer-name">John Smith</p>
+                </div>
+                <span class="quote quote-close">&#8221;</span>
+            </div>
+
+            <div class="review-item">
+                <img src="https://shuttletoagra.com/wp-content/uploads/2019/05/client-2.jpg" alt="Reviewer Micalea Smeltzer">
+                <span class="quote quote-open">&#8220;</span>
+                <p class="review-text">
+                    Amazing tour!!! Both our driver Surya and tour guide Raghvendra were professional and knowledgeable. Raghvendra was waiting for us at the hotel on time at 6.00am. An amazing day and experience!! Thanks to the fantastic team at Shuttle to Agra!
+                </p>
+                <div class="reviewer-info">
+                    <p class="reviewer-name">Micalea Smeltzer</p>
+                    <span class="reviewer-title">Marketing - P-Themes</span>
+                </div>
+                <span class="quote quote-close">&#8221;</span>
+            </div>
+
+            </div>
+
+        <div class="pagination-dots">
+            </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviews = document.querySelectorAll('.review-item');
+            const dotsContainer = document.querySelector('.pagination-dots');
+            let currentIndex = 0;
+
+            if (reviews.length > 0) {
+                // Create pagination dots based on the number of reviews
+                reviews.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('pagination-dot');
+                    dot.addEventListener('click', () => {
+                        showReview(index);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = document.querySelectorAll('.pagination-dot');
+
+                function showReview(index) {
+                    // Hide all reviews
+                    reviews.forEach(review => review.classList.remove('active'));
+                    // Deactivate all dots
+                    dots.forEach(dot => dot.classList.remove('active'));
+
+                    // Show the selected review and activate the corresponding dot
+                    reviews[index].classList.add('active');
+                    dots[index].classList.add('active');
+                    currentIndex = index;
+                }
+
+                function nextReview() {
+                    const nextIndex = (currentIndex + 1) % reviews.length;
+                    showReview(nextIndex);
+                }
+
+                // Show the first review initially
+                showReview(0);
+
+                // Change review every 5 seconds (5000 milliseconds)
+                setInterval(nextReview, 5000);
+            }
+        });
+    </script>
+    <script src="script-shuttle.js"></script>
+</body>
+</html>

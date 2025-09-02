@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airport Shuttle | GoToGo</title>
+    <link
+      rel="shortcut icon"
+      href="assets/gotogo final logos/GoToGo Final Logos/G2G Fleet.png"
+      type="image/x-icon"
+    />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap"
+      rel="stylesheet"
+    /> -->
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+    <!-- Select2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Choices.js CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    /> -->
+
+    <!-- Choices.js CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="path/to/bootstrap-icons.css" /> -->
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- html2pdf CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="navbar.css">
+    
+
+    <style>
+      
+      /* .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        } */
+
+      /* Disabled state style */
+      .pay-button:disabled {
+        background-color: #c0c0c0 !important;
+        color: #666 !important;
+        cursor: not-allowed !important;
+        opacity: 0.6;
+      }
+      h1,
+      h2 {
+        /* color: #0d6efd; */
+        color: black;
+      }
+      .hero {
+        background: url("assets/about-header.jpg") no-repeat center center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+      .content-section {
+        padding: 60px 0;
+      }
+      .content-section h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .content-section p {
+        font-size: 18px;
+        color: #555;
+      }
+      .icon {
+        font-size: 30px;
+        color: #0d6efd;
+      }
+      .list-group-item {
+        border: none;
+      }
+      .footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          height: 300px;
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+    <style>
+      body {
+        font-family: "Lora", serif;
+        line-height: 1.7;
+        color: #333;
+        background: #f4f4f4;
+      }
+      .hero {
+        background-color: #f2c015;
+        padding: 20px;
+      }
+
+      .feature-list li {
+        margin-bottom: 10px;
+      }
+
+      .highlight-bar {
+        background-color: #f2c015;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin-top: 40px;
+      }
+      .pay-button {
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+      }
+      @media (max-width: 768px) {
+        .hero {
+          height: 300px;
+          font-size: 1.8rem;
+        }
+        .section-1 {
+          flex-direction: column;
+        }
+        .pricing-box {
+          display: flex;
+          justify-content: center;
+        }
+        .contact-info {
+          width: 95% !important;
+        }
+      }
+    </style>
+    <style>
+      /* Limit width of the whole select wrapper */
+      .choices {
+        width: 120px !important;
+        min-width: 120px !important;
+        max-width: 120px !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* Reduce height, make it look like Bootstrap input */
+      .choices__inner {
+        padding: 6px 10px !important;
+        font-size: 14px !important;
+        min-height: auto !important;
+        line-height: 1.4 !important;
+        border-radius: 4px !important;
+        height: 38px !important;
+        overflow: hidden;
+      }
+
+      /* Dropdown menu options */
+      .choices__list--dropdown {
+        font-size: 14px !important;
+        max-width: 250px !important;
+        min-width: 180px !important;
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+
+      .choices__item--choice {
+        padding: 6px 10px !important;
+      }
+
+      /* Keep it inline like Bootstrap */
+      .choices[data-type*="select-one"] {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+<!-- Navbar -->
+<header class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="./assets/gotogo final logos/g2g corporate.png" alt="Logo" />
+    </a>
+
+    <!-- Menu -->
+    <nav>
+      <ul class="desktop-links">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="fleet.html" class="menu-item">Fleet</a></li>
+        <li><a href="roomsnvenues.html" class="menu-item">Rooms & Venues</a></li>
+        <li><a href="shuttletoagra.html" class="menu-item">Shuttle To Agra</a></li>
+        <li><a href="airport-shuttle.html" class="menu-item active">Airport Shuttle</a></li>
+        <li><a href="partner.html" class="menu-item">Partner</a></li>
+        <li><a href="#contact" class="menu-item">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- CSS -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .navbar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 1px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+
+  .desktop-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin-top: 1rem;
+  }
+
+  .desktop-links li {
+    display: inline-block;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s ease;
+    padding: 6px 10px;
+  }
+
+  .menu-item:hover,
+  .menu-item.active {
+    color: #000; /* tumhara heading ka blue shade */
+    border-bottom: 2px solid #000;
+  }
+</style>
+
+    <!-- ✅ Global Notification Container -->
+    <div
+      id="globalNotification"
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #0c52a2;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        display: none;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+      "
+    ></div>
+
+    <!-- Banner Image -->
+    <div>
+      <img
+        src="./assets/Airport Shuttle Banner.png"
+        class="img-fluid w-100"
+        alt="Banner Image"
+      />
+    </div>
+
+    <!-- Content -->
+    <h2 style="background: aliceblue" class="container py-2">
+      Airport Shuttle Drop
+    </h2>
+    <div class="container py-2">
+      <div style="display: flex" class="section-1">
+        <div style="text-align: justify; margin-right: 15px">
+          <p>
+            <strong
+              >GoToGo Airport Shuttle Drop – Timely, Safe & Hassle-Free!</strong
+            >
+          </p>
+          <p style="text-align: justify">
+            When it comes to catching a flight, every minute counts—and GoToGo
+            ensures you never miss yours! Our
+            <strong>Airport Shuttle Drop</strong> Service is designed for
+            corporate professionals, international travelers, and frequent
+            flyers who value punctuality, comfort, and reliability.
+          </p>
+          <h5>Why Choose GoToGo for Your Airport Drop?</h5>
+          <ul class="feature-list">
+            <li>
+              <strong>On-Time Guarantee</strong> – Our drivers report early to
+              ensure stress-free departures.
+            </li>
+            <li>
+              <strong>Corporate-Ready Comfort</strong> – Travel in
+              well-maintained, clean, and air-conditioned vehicles.
+            </li>
+            <li>
+              <strong>Transparent Pricing</strong> – No hidden charges. What you
+              see is what you pay.
+            </li>
+            <li>
+              <strong>Comfort Onboard</strong> – Complimentary water bottles and
+              optional refreshments available.
+            </li>
+            <li>
+              <strong>Easy Booking</strong> – Schedule your drop online or via
+              WhatsApp in just a few taps.
+            </li>
+          </ul>
+          <p>
+            <em
+              >Whether you're flying out for a business trip or heading home,
+              GoToGo gets you to the airport safely and on time—every time.</em
+            >
+          </p>
+        </div>
+        <!-- Pricing Card -->
+        <div class="mt-4 pricing-box">
+          <div class="col-md-4">
+            <img
+              src="./assets/G2G - Airport Shuttle Pricing.png"
+              style="width: 350px"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form Section -->
+      <div class="highlight-bar">Book Now</div>
+      <form class="row py-5" id="bookingForm">
+        <div class="col-md-6">
+          <div class="row" style="justify-content: center">
+            <!-- Passenger Name & Contact -->
+            <div class="row">
+              <label class="form-label fw-bold mb-3">PASSENGER DETAILS</label>
+
+              <!-- Repeat this block for each passenger -->
+              <style>
+                @media (max-width: 768px) {
+                  .w-md-full {
+                    max-width: 100% !important;
+                  }
+                }
+              </style>
+              <style>
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+
+                input[type="number"] {
+                  -moz-appearance: textfield;
+                }
+              </style>
+              <div
+                class="d-flex flex-column flex-md-row align-items-start mb-2"
+              >
+                <input
+                  type="text"
+                  class="form-control me-2 w-100 w-md-full"
+                  id="name1"
+                  placeholder="Passenger Name"
+                  style="max-width: 220px"
+                />
+                <div class="d-flex">
+                  <select
+                    class="form-select me-2 country-code-select"
+                    id="code1"
+                    style="max-width: 120px"
+                  >
+                    <option selected>+91</option>
+                    <option>+1</option>
+                    <option>+44</option>
+                  </select>
+                  <input
+                    type="number"
+                    class="form-control w-md-full"
+                    maxlength="10"
+                    oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10)"
+                    id="phone1"
+                    placeholder="Phone number"
+                    style="max-width: 200px"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="d-flex flex-column flex-md-row align-items-start mb-2"
+              >
+                <input
+                  type="text"
+                  class="form-control me-2 w-md-full"
+                  id="name2"
+                  placeholder="Passenger Name"
+                  style="max-width: 220px"
+                />
+                <div class="d-flex">
+                  <select
+                    class="form-select me-2 country-code-select"
+                    id="code2"
+                    style="max-width: 120px"
+                  >
+                    <option selected>+91</option>
+                    <option>+1</option>
+                    <option>+44</option>
+                  </select>
+                  <input
+                    type="number"
+                    class="form-control w-md-full"
+                    id="phone2"
+                    maxlength="10"
+                    oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10)"
+                    placeholder="Phone number"
+                    style="max-width: 200px"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="d-flex align-items-start mb-2 flex-column flex-md-row"
+              >
+                <input
+                  type="text"
+                  class="form-control me-2 w-md-full"
+                  id="name3"
+                  placeholder="Passenger Name"
+                  style="max-width: 220px"
+                />
+                <div class="d-flex">
+                  <select
+                    class="form-select me-2 country-code-select"
+                    id="code3"
+                    style="max-width: 120px"
+                  >
+                    <option selected>+91</option>
+                    <option>+1</option>
+                    <option>+44</option>
+                  </select>
+                  <input
+                    type="number"
+                    class="form-control w-md-full"
+                    id="phone3"
+                    maxlength="10"
+                    oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10)"
+                    placeholder="Phone number"
+                    style="max-width: 200px"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="d-flex align-items-start mb-2 flex-column flex-md-row"
+              >
+                <input
+                  type="text"
+                  class="form-control me-2 w-md-full"
+                  id="name4"
+                  placeholder="Passenger Name"
+                  style="max-width: 220px"
+                />
+                <div class="d-flex">
+                  <select
+                    class="form-select me-2 country-code-select"
+                    id="code4"
+                    style="max-width: 120px"
+                  >
+                    <option selected>+91</option>
+                    <option>+1</option>
+                    <option>+44</option>
+                  </select>
+                  <input
+                    type="number"
+                    class="form-control w-md-full"
+                    id="phone4"
+                    maxlength="10"
+                    oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10)"
+                    placeholder="Phone number"
+                    style="max-width: 200px"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="d-flex align-items-start mb-2 flex-column flex-md-row"
+              >
+                <input
+                  type="text"
+                  class="form-control me-2 w-md-full"
+                  id="name5"
+                  placeholder="Passenger Name"
+                  style="max-width: 220px"
+                />
+                <div class="d-flex">
+                  <select
+                    class="form-select me-2 country-code-select"
+                    id="code5"
+                    style="max-width: 120px"
+                  >
+                    <option selected>+91</option>
+                    <option>+1</option>
+                    <option>+44</option>
+                  </select>
+                  <input
+                    type="number"
+                    class="form-control w-md-full"
+                    id="phone5"
+                    maxlength="10"
+                    oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10)"
+                    placeholder="Phone number"
+                    style="max-width: 200px"
+                  />
+                </div>
+              </div>
+              <input
+                type="email"
+                placeholder="Enter your email to get details"
+                class="form-control email-input w-md-full-input"
+                style="margin-left: 10px; width: 550px"
+                id="email"
+                required
+              />
+            </div>
+
+            <style>
+              @media (max-width: 768px) {
+                .w-md-full-input {
+                  width: 330px !important;
+                }
+              }
+            </style>
+
+            <p style="margin-top: 3.5rem">
+              <small
+                ><em
+                  >For more than 5 travelers, please contact us directly to
+                  avail <strong>GROUP DISCOUNT!</strong></em
+                ></small
+              >
+            </p>
+          </div>
+          <img
+            src="./assets/Form Image 595 x 383 px (1).png"
+            class="img-fluid mb-3"
+            alt="Business Traveler"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <img
+            src="./assets/Form Image 595 x 383 px.png"
+            class="img-fluid"
+            alt="Bus Passenger"
+          />
+          <div class="mt-4">
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <label class="form-label">PICKUP DATE</label>
+                <input type="date" class="form-control" id="pickupDate" />
+              </div>
+              <div>
+                <label class="form-label">CHOOSE SERVICE TYPE</label><br />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="serviceType"
+                    value="Shuttle"
+                  />
+                  <label class="form-check-label"
+                    >SHUTTLE SERVICE ($10 per seat)</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="serviceType"
+                    value="Sedan"
+                  />
+                  <label class="form-check-label"
+                    >SEDAN ($40, up to 3 travelers)</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="serviceType"
+                    value="SUV"
+                  />
+                  <label class="form-check-label"
+                    >SUV ($50, up to 5 travelers)</label
+                  >
+                </div>
+                <p>
+                  Want to customise your service ?
+                  <a style="color: #004aad" href="tel:+917065650650"
+                    >Call Now</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label mt-3">CHOOSE PICKUP LOCATION</label>
+              <select
+                class="form-select"
+                id="pickupLocation"
+                style="width: 100%"
+              >
+                <option disabled selected>Choose Pickup Location</option>
+              </select>
+            </div>
+
+            <div style="display: flex; justify-content: space-between">
+              <div>
+                <label class="form-label mt-3">CHOOSE BOARDING TIME</label>
+                <select class="form-select" id="boardingTime">
+                  <option disabled selected>Choose Boarding Time</option>
+                  <option>06:00 AM</option>
+                  <option>07:00 AM</option>
+                  <option>08:00 AM</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label mt-3">CHOOSE DROP TERMINAL</label>
+                <select class="form-select" id="dropTerminal" required>
+                  <option disabled selected value="">Choose Drop Terminal</option>
+                  <option>(IGI) T1</option>
+                  <option>(IGI) T2</option>
+                  <option>(IGI) T3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-bar mt-4">
+          <div id="checkout" class="my-3 text-black font-weight-bold"></div>
+
+          <button
+            class="pay-button ms-3 btn btn-primary"
+            type="submit"
+            id="submitBooking"
+            disabled
+          >
+            <span id="payBtnText">Please fill all the fields</span>
+            <span
+              id="payBtnLoader"
+              class="spinner-border spinner-border-sm ms-2"
+              role="status"
+              style="display: none"
+            ></span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+
+    
+
+    <!-- Sedan Modal -->
+    <div
+      id="sedanModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 30%;
+        left: 20%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+      "
+    >
+      <p>❌ Maximum 3 passengers allowed in Sedan.</p>
+      <p>
+        📞 Please call our assistance at <b>7065650650</b> for customized
+        bookings.
+      </p>
+      <a href="tel:7065650650">
+        <button
+          style="
+            background: #004aad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+          "
+        >
+          Call Now
+        </button>
+      </a>
+      <button
+        onclick="document.getElementById('sedanModal').style.display='none'"
+        style="margin-left: 10px"
+      >
+        Close
+      </button>
+    </div>
+
+    <!-- SUV Modal -->
+    <div
+      id="suvModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 30%;
+        left: 20%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+      "
+    >
+      <p>❌ Maximum 5 passengers allowed in SUV.</p>
+      <p>
+        📞 Please contact our assistance at <b>7065650650</b> for larger
+        bookings.
+      </p>
+      <a href="tel:7065650650">
+        <button
+          style="
+            background: #004aad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+          "
+        >
+          Call Now
+        </button>
+      </a>
+      <button
+        onclick="document.getElementById('suvModal').style.display='none'"
+        style="margin-left: 10px"
+      >
+        Close
+      </button>
+    </div>
+
+    <!-- iski script  -->
+    <script>
+      function showSedanModal() {
+        document.getElementById("sedanModal").style.display = "block";
+      }
+
+      function showSUVModal() {
+        document.getElementById("suvModal").style.display = "block";
+      }
+    </script>
+
+    <!-- default date  -->
+    <script>
+      function setDefaultPickupDate() {
+        const dateInput = document.getElementById("pickupDate");
+        const now = new Date();
+
+        // Check if current hour is >= 21 (i.e., 9 PM)
+        const isAfter9PM = now.getHours() >= 21;
+
+        // Default: tomorrow or day after tomorrow
+        const defaultDate = new Date();
+        defaultDate.setDate(defaultDate.getDate() + (isAfter9PM ? 2 : 1));
+
+        // Min date (earliest user can select): tomorrow or day after tomorrow
+        const minDate = new Date();
+        minDate.setDate(minDate.getDate() + (isAfter9PM ? 2 : 1));
+
+        // Max date: minDate + 9 days (so range is 10 days from default earliest)
+        const maxDate = new Date(minDate);
+        maxDate.setDate(minDate.getDate() + 9);
+
+        // Formatting helper
+        function format(d) {
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, "0");
+          const day = String(d.getDate()).padStart(2, "0");
+          return `${year}-${month}-${day}`;
+        }
+
+        dateInput.min = format(minDate);
+        dateInput.max = format(maxDate);
+
+        // Set default, but ensure it's within min and max!
+        if (defaultDate < minDate) defaultDate.setTime(minDate.getTime());
+        if (defaultDate > maxDate) defaultDate.setTime(maxDate.getTime());
+        dateInput.value = format(defaultDate);
+      }
+
+      window.addEventListener("DOMContentLoaded", setDefaultPickupDate);
+    </script>
+    <!-- The date input example: -->
+    <!-- <input type="date" id="pickupDate" /> -->
+
+    <!-- location searchEnabled -->
+    <script>
+      const pickupLocations = [
+        "Courtyard By Marriott Gurugram Downtown, Sector Road Plot No - 27 B, B Block, Sushant Lok - 1, Sector 27, Gurugram (Gurgaon) 122002 India",
+        "The Bristol Hotel, Sector 28, DLF Phase 1 Near Sikanderpur Metro Station, Gurugram (Gurgaon) 122002 India",
+        "Regenta Suites Gurugram, Element One Mall, Sector 49 Sohna Road, Gurugram (Gurgaon) 122018 India",
+        "Sunday Hotels And Residences, M3M Broadway, Golf Course Ext Rd, Sector 71, Gurgaon, 122004 India",
+        "Radisson Hotel Gurugram Udyog Vihar, Adjacent To Plot No. 406, Nh-8 Phase 3, Udyog Vihar, Gurugram (Gurgaon) 122016 India",
+        "Taj City Centre Gurugram, Plot No.1, Sector 44, Gurugram (Gurgaon) 122004 India",
+        "DoubleTree by Hilton Gurugram Baani Square, Baani Square Sector 50, Gurugram (Gurgaon) 122002 India",
+        "DoubleTree by Hilton Gurgaon-New Delhi NCR, Golf Course Road Sector 56, Gurugram (Gurgaon) 122011 India",
+        "Radisson Blu Hotel, New Delhi Dwarka, Plot 4, Dwarka City Centre, Sector 13 Sector 13, Dwarka, New Delhi 110075 India",
+        "Radisson Hotel Gurugram Sohna Road City Center, Main Sohna Road Sector 49, Gurugram (Gurgaon) 122018 India",
+        "Radisson Hotel Sector 29 Gurugram, Plot No. 360-362 Sector 29, Gurugram (Gurgaon) 122001 India",
+        "Crowne Plaza Gurgaon, an IHG hotel, Site No.2 Sector 29 Opposite Signature Tower, Gurugram (Gurgaon) 122001 India",
+        "The Pllazio Hotel, 292 - 296, Sector 29, Gurugram (Gurgaon) 122001 India",
+        "Pride Plaza Hotel Aerocity New Delhi, 5 - A Hospitality District Aerocity, New Delhi 110037 India",
+        "Ibis Gurgaon Golf Course Road, Golf Course Rd Block 1 Sector 53, Gurugram (Gurgaon) 122002 India",
+        "Anya Hotel, Gurgaon, 42 Golf Course Road DLF Phase V, Gurugram (Gurgaon) 122002 India",
+        "Nemesia City Center - Gurugram, Plot No. 358 & 359 City Center, Gurugram (Gurgaon) 122001 India",
+      ];
+
+      const pickupSelect = document.getElementById("pickupLocation");
+
+      pickupLocations.forEach((location) => {
+        const option = document.createElement("option");
+        option.textContent = location;
+        option.value = location;
+        pickupSelect.appendChild(option);
+      });
+    </script>
+
+    <!-- country code  -->
+    <script>
+      const countries = [
+        { name: "United States", code: "+1" },
+        { name: "Albania", code: "+355" },
+        { name: "Algeria", code: "+213" },
+        { name: "American Samoa", code: "+1684" },
+        { name: "Andorra", code: "+376" },
+        { name: "Angola", code: "+244" },
+        { name: "Anguilla", code: "+1264" },
+        { name: "Antarctica", code: "+672" },
+        { name: "Antigua and Barbuda", code: "+1268" },
+        { name: "Argentina", code: "+54" },
+        { name: "Armenia", code: "+374" },
+        { name: "Aruba", code: "+297" },
+        { name: "Australia", code: "+61" },
+        { name: "Austria", code: "+43" },
+        { name: "Azerbaijan", code: "+994" },
+        { name: "Bahamas", code: "+1242" },
+        { name: "Bahrain", code: "+973" },
+        { name: "Bangladesh", code: "+880" },
+        { name: "Barbados", code: "+1246" },
+        { name: "Belarus", code: "+375" },
+        { name: "Belgium", code: "+32" },
+        { name: "Belize", code: "+501" },
+        { name: "Benin", code: "+229" },
+        { name: "Bermuda", code: "+1441" },
+        { name: "Bhutan", code: "+975" },
+        { name: "Bolivia", code: "+591" },
+        { name: "Bosnia and Herzegovina", code: "+387" },
+        { name: "Botswana", code: "+267" },
+        { name: "Brazil", code: "+55" },
+        { name: "British Indian Ocean Territory", code: "+246" },
+        { name: "British Virgin Islands", code: "+1284" },
+        { name: "Brunei", code: "+673" },
+        { name: "Bulgaria", code: "+359" },
+        { name: "Burkina Faso", code: "+226" },
+        { name: "Burundi", code: "+257" },
+        { name: "Cambodia", code: "+855" },
+        { name: "Cameroon", code: "+237" },
+        { name: "Canada", code: "+1" },
+        { name: "Cape Verde", code: "+238" },
+        { name: "Caribbean Netherlands", code: "+599" },
+        { name: "Cayman Islands", code: "+1345" },
+        { name: "Central African Republic", code: "+236" },
+        { name: "Chad", code: "+235" },
+        { name: "Chile", code: "+56" },
+        { name: "China", code: "+86" },
+        { name: "Christmas Island", code: "+61" },
+        { name: "Cocos (Keeling) Islands", code: "+61" },
+        { name: "Colombia", code: "+57" },
+        { name: "Comoros", code: "+269" },
+        { name: "Congo (Brazzaville)", code: "+242" },
+        { name: "Congo (Kinshasa)", code: "+243" },
+        { name: "Cook Islands", code: "+682" },
+        { name: "Costa Rica", code: "+506" },
+        { name: "Croatia", code: "+385" },
+        { name: "Cuba", code: "+53" },
+        { name: "Curaçao", code: "+599" },
+        { name: "Cyprus", code: "+357" },
+        { name: "Czech Republic", code: "+420" },
+        { name: "Denmark", code: "+45" },
+        { name: "Djibouti", code: "+253" },
+        { name: "Dominica", code: "+1767" },
+        { name: "Dominican Republic", code: "+1809" },
+        { name: "Dominican Republic", code: "+1829" },
+        { name: "Dominican Republic", code: "+1849" },
+        { name: "East Timor", code: "+670" },
+        { name: "Ecuador", code: "+593" },
+        { name: "Egypt", code: "+20" },
+        { name: "El Salvador", code: "+503" },
+        { name: "Equatorial Guinea", code: "+240" },
+        { name: "Eritrea", code: "+291" },
+        { name: "Estonia", code: "+372" },
+        { name: "Eswatini", code: "+268" },
+        { name: "Ethiopia", code: "+251" },
+        { name: "Falkland Islands", code: "+500" },
+        { name: "Faroe Islands", code: "+298" },
+        { name: "Fiji", code: "+679" },
+        { name: "Finland", code: "+358" },
+        { name: "France", code: "+33" },
+        { name: "French Guiana", code: "+594" },
+        { name: "French Polynesia", code: "+689" },
+        { name: "Gabon", code: "+241" },
+        { name: "Gambia", code: "+220" },
+        { name: "Georgia", code: "+995" },
+        { name: "Germany", code: "+49" },
+        { name: "Ghana", code: "+233" },
+        { name: "Gibraltar", code: "+350" },
+        { name: "Greece", code: "+30" },
+        { name: "Greenland", code: "+299" },
+        { name: "Grenada", code: "+1473" },
+        { name: "Guadeloupe", code: "+590" },
+        { name: "Guam", code: "+1671" },
+        { name: "Guatemala", code: "+502" },
+        { name: "Guernsey", code: "+44" },
+        { name: "Guinea", code: "+224" },
+        { name: "Guinea-Bissau", code: "+245" },
+        { name: "Guyana", code: "+592" },
+        { name: "Haiti", code: "+509" },
+        { name: "Honduras", code: "+504" },
+        { name: "Hong Kong", code: "+852" },
+        { name: "Hungary", code: "+36" },
+        { name: "Iceland", code: "+354" },
+        { name: "India", code: "+91" },
+        { name: "Indonesia", code: "+62" },
+        { name: "Iran", code: "+98" },
+        { name: "Iraq", code: "+964" },
+        { name: "Ireland", code: "+353" },
+        { name: "Isle of Man", code: "+44" },
+        { name: "Israel", code: "+972" },
+        { name: "Italy", code: "+39" },
+        { name: "Ivory Coast", code: "+225" },
+        { name: "Jamaica", code: "+1876" },
+        { name: "Japan", code: "+81" },
+        { name: "Jersey", code: "+44" },
+        { name: "Jordan", code: "+962" },
+        { name: "Kazakhstan", code: "+7" },
+        { name: "Kenya", code: "+254" },
+        { name: "Kiribati", code: "+686" },
+        { name: "Kuwait", code: "+965" },
+        { name: "Kyrgyzstan", code: "+996" },
+        { name: "Laos", code: "+856" },
+        { name: "Latvia", code: "+371" },
+        { name: "Lebanon", code: "+961" },
+        { name: "Lesotho", code: "+266" },
+        { name: "Liberia", code: "+231" },
+        { name: "Libya", code: "+218" },
+        { name: "Liechtenstein", code: "+423" },
+        { name: "Lithuania", code: "+370" },
+        { name: "Luxembourg", code: "+352" },
+        { name: "Macau", code: "+853" },
+        { name: "Madagascar", code: "+261" },
+        { name: "Malawi", code: "+265" },
+        { name: "Malaysia", code: "+60" },
+        { name: "Maldives", code: "+960" },
+        { name: "Mali", code: "+223" },
+        { name: "Malta", code: "+356" },
+        { name: "Marshall Islands", code: "+692" },
+        { name: "Martinique", code: "+596" },
+        { name: "Mauritania", code: "+222" },
+        { name: "Mauritius", code: "+230" },
+        { name: "Mayotte", code: "+262" },
+        { name: "Mexico", code: "+52" },
+        { name: "Micronesia", code: "+691" },
+        { name: "Moldova", code: "+373" },
+        { name: "Monaco", code: "+377" },
+        { name: "Mongolia", code: "+976" },
+        { name: "Montenegro", code: "+382" },
+        { name: "Montserrat", code: "+1664" },
+        { name: "Morocco", code: "+212" },
+        { name: "Mozambique", code: "+258" },
+        { name: "Myanmar", code: "+95" },
+        { name: "Namibia", code: "+264" },
+        { name: "Nauru", code: "+674" },
+        { name: "Nepal", code: "+977" },
+        { name: "Netherlands", code: "+31" },
+        { name: "New Caledonia", code: "+687" },
+        { name: "New Zealand", code: "+64" },
+        { name: "Nicaragua", code: "+505" },
+        { name: "Niger", code: "+227" },
+        { name: "Nigeria", code: "+234" },
+        { name: "Niue", code: "+683" },
+        { name: "Norfolk Island", code: "+672" },
+        { name: "North Korea", code: "+850" },
+        { name: "North Macedonia", code: "+389" },
+        { name: "Northern Mariana Islands", code: "+1670" },
+        { name: "Norway", code: "+47" },
+        { name: "Oman", code: "+968" },
+        { name: "Pakistan", code: "+92" },
+        { name: "Palau", code: "+680" },
+        { name: "Palestine", code: "+970" },
+        { name: "Panama", code: "+507" },
+        { name: "Papua New Guinea", code: "+675" },
+        { name: "Paraguay", code: "+595" },
+        { name: "Peru", code: "+51" },
+        { name: "Philippines", code: "+63" },
+        { name: "Pitcairn", code: "+64" },
+        { name: "Poland", code: "+48" },
+        { name: "Portugal", code: "+351" },
+        { name: "Puerto Rico", code: "+1787" },
+        { name: "Puerto Rico", code: "+1939" },
+        { name: "Qatar", code: "+974" },
+        { name: "Réunion", code: "+262" },
+        { name: "Romania", code: "+40" },
+        { name: "Russia", code: "+7" },
+        { name: "Rwanda", code: "+250" },
+        { name: "Saint Barthélemy", code: "+590" },
+        { name: "Saint Helena", code: "+290" },
+        { name: "Saint Kitts and Nevis", code: "+1869" },
+        { name: "Saint Lucia", code: "+1758" },
+        { name: "Saint Martin (French part)", code: "+590" },
+        { name: "Saint Pierre and Miquelon", code: "+508" },
+        { name: "Saint Vincent and the Grenadines", code: "+1784" },
+        { name: "Samoa", code: "+685" },
+        { name: "San Marino", code: "+378" },
+        { name: "Sao Tome and Principe", code: "+239" },
+        { name: "Saudi Arabia", code: "+966" },
+        { name: "Senegal", code: "+221" },
+        { name: "Serbia", code: "+381" },
+        { name: "Seychelles", code: "+248" },
+        { name: "Sierra Leone", code: "+232" },
+        { name: "Singapore", code: "+65" },
+        { name: "Sint Maarten (Dutch part)", code: "+1721" },
+        { name: "Slovakia", code: "+421" },
+        { name: "Slovenia", code: "+386" },
+        { name: "Solomon Islands", code: "+677" },
+        { name: "Somalia", code: "+252" },
+        { name: "South Africa", code: "+27" },
+        { name: "South Korea", code: "+82" },
+        { name: "South Sudan", code: "+211" },
+        { name: "Spain", code: "+34" },
+        { name: "Sri Lanka", code: "+94" },
+        { name: "Sudan", code: "+249" },
+        { name: "Suriname", code: "+597" },
+        { name: "Svalbard and Jan Mayen", code: "+47" },
+        { name: "Sweden", code: "+46" },
+        { name: "Switzerland", code: "+41" },
+        { name: "Syria", code: "+963" },
+        { name: "Taiwan", code: "+886" },
+        { name: "Tajikistan", code: "+992" },
+        { name: "Tanzania", code: "+255" },
+        { name: "Thailand", code: "+66" },
+        { name: "Timor-Leste", code: "+670" },
+        { name: "Togo", code: "+228" },
+        { name: "Tokelau", code: "+690" },
+        { name: "Tonga", code: "+676" },
+        { name: "Trinidad and Tobago", code: "+1868" },
+        { name: "Tunisia", code: "+216" },
+        { name: "Turkey", code: "+90" },
+        { name: "Turkmenistan", code: "+993" },
+        { name: "Turks and Caicos Islands", code: "+1649" },
+        { name: "Tuvalu", code: "+688" },
+        { name: "Uganda", code: "+256" },
+        { name: "Ukraine", code: "+380" },
+        { name: "United Arab Emirates", code: "+971" },
+        { name: "United Kingdom", code: "+44" },
+        { name: "Afghanistan", code: "+93" },
+        { name: "Uruguay", code: "+598" },
+        { name: "Uzbekistan", code: "+998" },
+        { name: "Vanuatu", code: "+678" },
+        { name: "Vatican City", code: "+379" },
+        { name: "Venezuela", code: "+58" },
+        { name: "Vietnam", code: "+84" },
+        { name: "Wallis and Futuna", code: "+681" },
+        { name: "Western Sahara", code: "+212" },
+        { name: "Yemen", code: "+967" },
+        { name: "Zambia", code: "+260" },
+        { name: "Zimbabwe", code: "+263" },
+      ];
+      function populateWithSearchableDropdowns() {
+        const selects = document.querySelectorAll(".country-code-select");
+
+        selects.forEach((select, index) => {
+          // Clear existing options
+          select.innerHTML = "";
+
+          countries.forEach(({ code, name }) => {
+            const option = document.createElement("option");
+            option.value = code;
+            option.textContent = `${name} (${code})`;
+
+            if (code === "+91") {
+              option.selected = true;
+            }
+
+            select.appendChild(option);
+          });
+
+          // Check to avoid double initialization
+          if (!select.classList.contains("choices-initialized")) {
+            new Choices(select, {
+              searchEnabled: true,
+              itemSelectText: "",
+              shouldSort: false,
+              placeholder: false,
+              callbackOnCreateTemplates: function (template) {
+                return {
+                  item: (classNames, data) => {
+                    return template(`
+                  <div class="${classNames.item} ${
+                      data.highlighted
+                        ? classNames.highlightedState
+                        : classNames.itemSelectable
+                    }"
+                       data-item data-id="${data.id}" data-value="${data.value}"
+                       ${data.active ? 'aria-selected="true"' : ""}
+                       ${data.disabled ? 'aria-disabled="true"' : ""}>
+                    ${data.value}
+                  </div>
+                `);
+                  },
+                };
+              },
+            });
+            select.classList.add("choices-initialized");
+          }
+        });
+      }
+
+      // Wait for full DOM before initializing
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(populateWithSearchableDropdowns, 100);
+      });
+    </script>
+
+    <!-- date  -->
+    <script>
+      const pickupDateInput = document.getElementById("pickupDate");
+
+      const now = new Date();
+      const ninePM = new Date();
+      ninePM.setHours(21, 0, 0, 0); // today at 9:00 PM
+
+      let minDate;
+
+      if (now < ninePM) {
+        // ✅ Before 9 PM → allow tomorrow
+        now.setDate(now.getDate() + 1);
+      } else {
+        // ⛔ After 9 PM → allow day after tomorrow
+        now.setDate(now.getDate() + 2);
+      }
+
+      // Format date to YYYY-MM-DD
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      minDate = `${yyyy}-${mm}-${dd}`;
+
+      pickupDateInput.setAttribute("min", minDate);
+    </script>
+
+    <!-- button logic  -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const submitBtn = document.getElementById("submitBooking");
+        const payBtnText = document.getElementById("payBtnText");
+
+        function validateFormFields() {
+          const email = document.getElementById("email")?.value.trim();
+          const pickupDate = document.getElementById("pickupDate")?.value;
+          const pickupLocation = document
+            .getElementById("pickupLocation")
+            ?.value.trim();
+          const isValidPickup =
+            pickupLocation && pickupLocation !== "Choose Pickup Location";
+
+          const boardingTime = document.getElementById("boardingTime")?.value;
+          const terminal = document
+            .getElementById("dropTerminal")
+            ?.value.trim();
+          const serviceType = document.querySelector(
+            'input[name="serviceType"]:checked'
+          )?.value;
+
+          let validName = false;
+          let validPhone = false;
+
+          for (let i = 1; i <= 5; i++) {
+            const name = document.getElementById(`name${i}`)?.value.trim();
+            const phone = document.getElementById(`phone${i}`)?.value.trim();
+            if (name && phone) {
+              validName = true;
+              validPhone = true;
+              break;
+            }
+          }
+
+          const allValid =
+            validName &&
+            validPhone &&
+            email?.includes("@") &&
+            pickupDate &&
+            isValidPickup &&
+            boardingTime &&
+            terminal &&
+            serviceType;
+
+          submitBtn.disabled = !allValid;
+          payBtnText.textContent = allValid
+            ? "Pay Now"
+            : "Please fill all the fields";
+        }
+
+        // Attach listeners to relevant fields
+        const fieldIds = [
+          "email",
+          "pickupDate",
+          "pickupLocation",
+          "boardingTime",
+          "dropTerminal",
+        ];
+
+        fieldIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.addEventListener("input", validateFormFields);
+            el.addEventListener("change", validateFormFields);
+          }
+        });
+
+        for (let i = 1; i <= 5; i++) {
+          const nameEl = document.getElementById(`name${i}`);
+          const phoneEl = document.getElementById(`phone${i}`);
+          if (nameEl) nameEl.addEventListener("input", validateFormFields);
+          if (phoneEl) phoneEl.addEventListener("input", validateFormFields);
+        }
+
+        document
+          .querySelectorAll('input[name="serviceType"]')
+          .forEach((radio) => {
+            radio.addEventListener("change", validateFormFields);
+          });
+
+        validateFormFields(); // Initial check
+      });
+
+      // ✅ Toast Notification Function
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.style.cssText = `
+      position: fixed; top: 20px; right: 20px;
+      background: #0c52a2; color: white;
+      padding: 12px 20px; border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 9999;
+    `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+      }
+
+      // ✅ Ticket Link Logic for ticket page
+      document.addEventListener("DOMContentLoaded", () => {
+        const data = JSON.parse(localStorage.getItem("bookingDetails"));
+        if (data) {
+          const createdAt = new Date().getTime();
+          localStorage.setItem("localStorageExpiry", createdAt);
+
+          const linkDiv = document.getElementById("downloadTicketLink");
+          if (linkDiv) {
+            const now = new Date().getTime();
+            const expiry =
+              parseInt(localStorage.getItem("localStorageExpiry")) +
+              4 * 60 * 60 * 1000;
+            if (now < expiry) {
+              linkDiv.innerHTML = `
+            <a href="your-ticket.html" class="btn btn-primary mt-3">Download Your Ticket</a>
+            <p class="text-muted small">Ticket will expire after 4 hours</p>`;
+            }
+          }
+        }
+      });
+    </script>
+
+    <!-- notification script  -->
+    <script>
+      function showToast(message = "Something happened!", duration = 4000) {
+        const toast = document.getElementById("globalNotification");
+        if (!toast) return;
+
+        toast.innerText = message;
+        toast.style.display = "block";
+        toast.style.opacity = "1";
+
+        setTimeout(() => {
+          toast.style.opacity = "0";
+        }, duration - 500); // start fadeout before removing
+
+        setTimeout(() => {
+          toast.style.display = "none";
+        }, duration);
+      }
+    </script>
+
+    <script>
+      // ✅ Global bookingData variable (MUST be outside)
+      let bookingData = {};
+
+      function generateTicketNumber() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes();
+        const period = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+        const hourStr = hours.toString().padStart(2, "0");
+        const minuteStr = minutes.toString().padStart(2, "0");
+        const timePart = `${hourStr}${minuteStr}`;
+        const random = Math.floor(100 + Math.random() * 900);
+        return `G2G-${period}-${timePart}-${random}`;
+      }
+
+      function updateCheckoutSummary() {
+        const names = [];
+        const serviceType = document.querySelector(
+          'input[name="serviceType"]:checked'
+        )?.value;
+
+        for (let i = 1; i <= 5; i++) {
+          const name = document.getElementById(`name${i}`).value.trim();
+          if (name) names.push(name);
+        }
+
+        let price = 0;
+        if (serviceType === "Shuttle") {
+          price = names.length * 1;
+        } else if (serviceType === "Sedan") {
+          if (names.length > 3) {
+            showSedanModal();
+            return;
+          }
+          price = 4;
+        } else if (serviceType === "SUV") {
+          if (names.length > 5) {
+            showCallModal();
+            return;
+          }
+          price = 5;
+        }
+
+        const checkoutElement = document.getElementById("checkout");
+        if (serviceType && names.length > 0) {
+          checkoutElement.innerHTML = `<strong>${names.length} Seat${
+            names.length > 1 ? "s" : ""
+          } on ${serviceType} Drop @ $${price}</strong>`;
+        } else {
+          checkoutElement.innerHTML = "";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const bookingForm = document.getElementById("bookingForm");
+
+        for (let i = 1; i <= 5; i++) {
+          document
+            .getElementById(`name${i}`)
+            .addEventListener("input", updateCheckoutSummary);
+        }
+
+        document
+          .querySelectorAll('input[name="serviceType"]')
+          .forEach((input) =>
+            input.addEventListener("change", updateCheckoutSummary)
+          );
+
+        updateCheckoutSummary();
+
+        bookingForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const payBtn = document.getElementById("submitBooking");
+          payBtn.disabled = true;
+          payBtn.innerHTML = `
+      <div style="display: inline-flex; align-items: center;">
+        <div class="spinner" style="width: 18px; height: 18px; border: 3px solid #f3f3f3; border-top: 3px solid white; border-radius: 50%; margin-right: 8px; animation: spin 0.8s linear infinite;"></div>
+        Wait a while we are Processing... ⚠️ PLEASE DO NOT REFRESH OR LEAVE THIS PAGE !
+      </div>`;
+
+          if (!document.getElementById("btn-spinner-style")) {
+            const style = document.createElement("style");
+            style.id = "btn-spinner-style";
+            style.textContent = `@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`;
+            document.head.appendChild(style);
+          }
+
+          const names = [],
+            phones = [];
+          for (let i = 1; i <= 5; i++) {
+            const name = document.getElementById(`name${i}`).value.trim();
+            const code = document.getElementById(`code${i}`).value.trim();
+            const phone = document.getElementById(`phone${i}`).value.trim();
+            if (name) names.push(name);
+            if (phone) phones.push(`  ${code} ${phone}`);
+          }
+
+          const pickupDate = document.getElementById("pickupDate").value;
+          const pickupLocation = document
+            .getElementById("pickupLocation")
+            .value.trim();
+          const boardingTime = document.getElementById("boardingTime").value;
+          const terminal = document.getElementById("dropTerminal").value.trim();
+          const serviceType = document.querySelector(
+            'input[name="serviceType"]:checked'
+          )?.value;
+          const email = document.getElementById("email")?.value.trim();
+          const ticketNumber = generateTicketNumber();
+
+          if (
+            !pickupDate ||
+            !pickupLocation ||
+            !boardingTime ||
+            !terminal ||
+            !serviceType
+          )
+            return alert("Please fill all required fields.");
+          if (names.length === 0)
+            return alert("At least one passenger name is required.");
+          if (phones.length < names.length)
+            return alert("Please fill valid phone numbers for all passengers.");
+          if (!email || !email.includes("@"))
+            return alert("Please enter a valid email.");
+
+          const today = new Date().toISOString().split("T")[0];
+          if (pickupDate < today)
+            return alert("Pickup date cannot be in the past.");
+
+          let price = 0;
+          if (serviceType === "Shuttle") price = 1 * names.length;
+          else if (serviceType === "Sedan") {
+            if (names.length > 3) return alert("Max 3 passengers for Sedan.");
+            price = 4;
+          } else if (serviceType === "SUV") {
+            if (names.length > 5) return alert("Max 5 passengers for SUV.");
+            price = 5;
+          }
+
+          bookingData = {
+            names,
+            phones,
+            pickupDate,
+            pickupLocation,
+            boardingTime,
+            terminal,
+            serviceType,
+            amountPaid: price,
+            ticketNumber,
+            email, // add user email
+            paymentStatus: "success"
+          };
+
+          try {
+            const orderRes = await fetch(
+              "https://paymentgatewayforgotogo.onrender.com/api/create-order",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ amount: price }),
+              }
+            );
+
+            const orderData = await orderRes.json();
+            if (!orderData.id)
+              return alert("❌ Order creation failed. Please try again.");
+
+            const razorpayOptions = {
+              key: "rzp_live_GguLSrEps04lrr",  // change rzp_test_7m2jpATTXnOo2o  rzp_live_GguLSrEps04lrr
+              amount: orderData.amount,
+              currency: "INR",  // change USD
+              order_id: orderData.id,
+              name: "GoToGo Airport Shuttle Service",
+              description: "Service Booking Payment",
+              handler: async function (response) {
+
+                const firstName = names[0] || "User";
+                showToast(
+                  `Hi ${firstName}, thanks for choosing us. Generating ticket and sending info to your mail...`
+                );
+
+                const loaderDiv = document.createElement("div");
+                loaderDiv.id = "globalLoader";
+                loaderDiv.style.cssText = `position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;`;
+                loaderDiv.innerHTML = `<div class="spinner" style="border:6px solid #f3f3f3;border-top:6px solid #0c52a2;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;"></div><p style="margin-top:20px;font-size:18px;color:#0c52a2;">Please wait while we generate your ticket... ⚠️ PLEASE DO NOT REFRESH OR LEAVE THIS PAGE !</p>`;
+                document.body.appendChild(loaderDiv);
+
+                const style = document.createElement("style");
+                style.innerHTML = `@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`;
+                document.head.appendChild(style);
+
+                try {
+                  const verifyRes = await fetch(
+                    "https://paymentgatewayforgotogo.onrender.com/verify",
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        razorpay_order_id: response.razorpay_order_id,
+                        razorpay_payment_id: response.razorpay_payment_id,
+                        razorpay_signature: response.razorpay_signature,
+                        bookingData,
+                        email,
+                      }),
+                    }
+                  );
+
+                  const verifyResult = await verifyRes.json();
+                  console.log("✅ verifyResult:", verifyResult);
+
+                  const bookingWithPayment = JSON.parse(
+                    JSON.stringify({
+                      ...bookingData,
+                      paymentId: response.razorpay_payment_id,
+                      paymentStatus: "success"
+                    })
+                  );
+
+                  try {
+                    const serialized = JSON.stringify(bookingWithPayment);
+                    localStorage.setItem("bookingDetails", serialized);
+                    localStorage.setItem(
+                      "localStorageExpiry",
+                      Date.now().toString()
+                    );
+
+                    console.log("✅ bookingDetails saved:", serialized);
+                  } catch (err) {
+                    console.error("❌ Failed to save to localStorage:", err);
+                  }
+                  if (!verifyRes.ok || !verifyResult.success) {
+                    //extra check for success
+                    console.error(
+                      "❌ Payment verification failed:",
+                      verifyResult
+                    );
+                    showToast(
+                      "❌ Payment verification failed. Please contact support."
+                    );
+                    document.body.removeChild(loaderDiv);
+                    return;
+                  }
+                  if (!verifyResult.success) {
+                    showToast(
+                      "❌ Email not confirmed. Please contact support."
+                    );
+                    document.body.removeChild(loaderDiv);
+                    return;
+                  }
+
+                  document.body.removeChild(loaderDiv);
+                  showToast(
+                    "✅ We Will sent a mail to your email. Have a happy journey!"
+                  );
+
+                  setTimeout(() => {
+                    window.location.href = "your-ticket.html";
+                  }, 2000);
+                } catch (err) {
+                  console.error("❌ Final error:", err);
+                  showToast(
+                    "❌ Payment verified but server error! Please contact support."
+                  );
+                  document.body.removeChild(loaderDiv);
+                }
+              },
+              prefill: {
+                name: names[0],
+                contact: phones[0],
+              },
+              theme: { color: "#0c52a2" },
+            };
+
+            const rzp = new Razorpay(razorpayOptions);
+            rzp.open();
+          } catch (err) {
+            const bookingFailed = {
+              ...bookingData,
+              paymentStatus: "failed",
+            };
+            localStorage.setItem(
+              "bookingDetails",
+              JSON.stringify(bookingFailed)
+            );
+            localStorage.setItem("localStorageExpiry", Date.now().toString());
+
+            console.error("❌ Razorpay payment error:", err);
+            alert("❌ Something went wrong during payment process.");
+          }
+        });
+      });
+    </script>
+
+    <!-- jQuery (Required by Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Choices.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script
+      src="https://kit.fontawesome.com/4097fc1260.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#pickupLocation").select2({
+          placeholder: "Choose Pickup Location",
+          allowClear: true,
+        });
+      });
+    </script>
+  </body>
+</html>

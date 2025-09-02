@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoToGo - Luxury Car Rental | Airport Transfers | Local Travel</title>
+    <link
+      rel="shortcut icon"
+      href="gotogo-in/assets/gotogo final logos/GoToGo Final Logos/G2G Fleet.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="path/to/bootstrap-icons.css" /> -->
+    <link rel="stylesheet" href="styles-fleet.css" />
+  
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="navbar.css">
+    
+  </head>
+  <!-- Styles -->
+  <style>
+    .container-feature {
+      background: #f4f4f4;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      /* line-height: 1.8; */
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .feature-pair {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .feature-circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .feature-circle img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-circle:hover img {
+      transform: scale(1.1);
+    }
+
+    .feature-circle p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .circle-group {
+        gap: 20px;
+      }
+
+      .feature-pair {
+        flex-direction: column; /* Display pairs in column format on mobile */
+        gap: 15px;
+      }
+
+      .feature-circle img {
+        width: 110px;
+        height: 110px;
+      }
+
+      .feature-circle p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Circle Images */
+      .circle-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      .feature-circle img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .feature-circle p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .circle-group {
+        gap: 15px;
+      }
+
+      .gap2-5 {
+        gap: 2.5rem !important;
+      }
+
+      .feature-pair {
+        flex-direction: row; /* Ensures 2 circles per row */
+        gap: 15px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .feature-circle img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .feature-circle p {
+        font-size: 12px;
+      }
+    }
+  </style>
+  <style>
+        .rooms {
+          flex-direction: column-reverse !important;
+        }
+      
+    </style>
+  <!-- Styles -->
+  <style>
+    /* Wrapper and Carousel */
+    .testimonial-loop-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .testimonial-carousel {
+      display: flex;
+      animation: scroll 10s linear infinite;
+    }
+
+    .testimonial-card {
+      min-width: calc(100% / 3);
+      padding: 30px;
+      box-sizing: border-box;
+      text-align: center;
+      background: #f4be30;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .testimonial-card:hover {
+      background: #000;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .testimonial-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .testimonial-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .testimonial-text {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .testimonial-card:hover .testimonial-text {
+      color: #f4be30;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    /* Animation */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .testimonial-card {
+        min-width: 50%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-card {
+        min-width: 100%;
+      }
+
+      .testimonial-icon {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+  <!-- Scoped Styles -->
+  <style>
+    /* Scoped only to this section */
+    #services-wrapper a {
+      transition: transform 0.3s;
+    }
+
+    #services-wrapper a:hover img {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 992px) {
+      #services-wrapper a {
+        width: calc(50% - 15px); /* Two images in a row on tablet */
+      }
+    }
+
+    @media (max-width: 576px) {
+      #services-wrapper a {
+        width: 100%; /* One image per row on mobile */
+      }
+
+      #services-wrapper img {
+        max-height: 120px; /* Smaller images on small screens */
+      }
+    }
+  </style>
+
+  <body>
+
+
+    <!-- Navbar -->
+<header class="navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="./assets/gotogo final logos/g2g corporate.png" alt="Logo" />
+    </a>
+
+    <!-- Menu -->
+    <nav>
+      <ul class="desktop-links">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="fleet.html" class="menu-item active"  >Fleet</a></li>
+        <li><a href="roomsnvenues.html" class="menu-item">Rooms & Venues</a></li>
+        <li><a href="shuttletoagra.html" class="menu-item">Shuttle To Agra</a></li>
+        <li><a href="airport-shuttle.html" class="menu-item ">Airport Shuttle</a></li>
+        <li><a href="partner.html" class="menu-item">Partner</a></li>
+        <li><a href="#contact" class="menu-item">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- CSS -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .navbar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 1px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 100px;
+    width: auto;
+  }
+
+  .desktop-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin-top: 1rem;
+  }
+
+  .desktop-links li {
+    display: inline-block;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s ease;
+    padding: 6px 10px;
+  }
+
+  .menu-item:hover,
+  .menu-item.active {
+    color: #000; /* tumhara heading ka blue shade */
+    border-bottom: 2px solid #000;
+  }
+</style>
+
+    <div class="header">
+
+      <div class="slider-container">
+        <!-- <div class="header-text">
+          <p id="greeting" style="color: white; margin-bottom: 15px"></p>
+        </div> -->
+        <div class="slider">
+          <img src="gotogo-in/assets/banner-img/1.png" alt="Image 1" class="slide" />
+          <img
+            src="gotogo-in/assets/banner-img/3.png"
+            alt="Image 2"
+            class="slide"
+            onclick="window.location.href='airport-shuttle.html'"
+          />
+          <img src="gotogo-in/assets/banner-img/2.png" alt="Image 3" class="slide" />
+          <img src="gotogo-in/assets/banner-img/4.png" alt="Image 4" class="slide" />
+        </div>
+        <!-- <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button> -->
+      </div>
+      <!-- <video src="./gotogo-in/assets/video/"></video> -->
+    </div>
+
+    <!-- content -->
+    <!-- container 1  -->
+
+    <div class="container-fluid container-custom">
+      <div class="text-section" style="text-align: justify">
+        <h5>About us</h5>
+        <h1>
+          Introducing
+          <span style="color: #f4be30; font-style: italic">GoToGo</span>
+        </h1>
+        <p style="text-align: justify">
+          GoToGo is a new venture focused on providing affordable and quality
+          transportation within and outside the city. We aim to be the preferred
+          partner for hotels, offering economical and safe daily commute options
+          for their guests. We introduce innovative features like GPS tracking,
+          Wi-Fi, and dash cams for enhanced safety. Passengers can also enjoy
+          munchies and soft beverages at a nominal cost. Our tie-up includes a
+          large fleet of well-maintained sedans and SUVs, driven by experienced,
+          courteous, and well-mannered chauffeurs equipped with mobile phones.
+          Our 24x7 efficient back-end operations and strong communication
+          network seamlessly coordinate customer needs with our fleet. Routine
+          checks by senior personnel ensure operational efficiency. GoToGo is
+          committed to delivering a superior travel experience through
+          affordability, quality, safety, and innovative features. We are eager
+          to partner with your hotel and provide exceptional ride experiences
+          for your guests.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="image-section">
+        <img src="gotogo-in/assets/c4.jpg" alt="Luxury Car" />
+      </div>
+    </div>
+
+    <!-- our features -->
+    <div
+      class="container-fluid container-feature py-5 d-flex flex-column align-items-center text-center"
+    >
+      <!-- Heading Section -->
+      <h1 style="color: #000; font-weight: bold">Our Features</h1>
+
+      <!-- Paragraph Section -->
+      <p
+        style="max-width: 800px; font-size: 18px; line-height: 1.8; color: #555"
+      >
+        Experience Stress-Free Travel with GoToGo's Reliable Features. At
+        GoToGo, we prioritize punctuality with our drivers, who are committed to
+        arriving on time, every time. Say goodbye to airport anxieties with our
+        reliable service that helps you plan your travel with confidence. Choose
+        GoToGo for reliable, transparent, and convenient transportation.
+      </p>
+
+      <div
+        class="circle-group d-flex flex-wrap justify-content-center gap-4 mt-4"
+      >
+        <div class="feature-pair d-flex justify-content-center gap-4">
+          <div class="feature-circle text-center">
+            <img src="gotogo-in/assets/punctual.jpg" alt="Feature 1" class="img-fluid" />
+            <div>
+              <p style="margin-bottom: 5px; font-size: 18px; font-weight: bold">
+                Punctual Drivers
+              </p>
+              <p
+                style="
+                  font-size: 14px;
+                  font-weight: 400;
+                  margin-top: 0;
+                  line-height: 1.5;
+                "
+              >
+                Always on time<br />
+                for a stress-free journey.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-circle text-center">
+            <img src="gotogo-in/assets/timely.jpg" alt="Feature 2" class="img-fluid" />
+            <p style="margin-bottom: 5px; font-size: 18px; font-weight: bold">
+              Timely Airport Rides
+            </p>
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 0;
+                line-height: 1.5;
+              "
+            >
+              Never worry<br />
+              about missing a flight.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-pair gap2-5 d-flex justify-content-center ">
+          <div class="feature-circle text-center">
+            <img
+              src="gotogo-in/assets/transparancy.jpg"
+              alt="Feature 3"
+              class="img-fluid"
+            />
+            <p style="margin-bottom: 5px; font-size: 18px; font-weight: bold">
+              Transparent Pricing
+            </p>
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 0;
+                line-height: 1.5;
+              "
+            >
+              No hidden fees,<br />
+              no surprises.
+            </p>
+          </div>
+
+          <div class="feature-circle text-center">
+            <img src="gotogo-in/assets/available.jpg" alt="Feature 4" class="img-fluid" />
+            <p style="margin-bottom: 5px; font-size: 18px; font-weight: bold">
+              24/7 Availability
+            </p>
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 0;
+                line-height: 1.5;
+              "
+            >
+              Reliable service<br />
+              anytime, anywhere.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-pair d-flex justify-content-center gap-4">
+          <div class="feature-circle text-center">
+            <img src="gotogo-in/assets/easy.jpg" alt="Feature 5" class="img-fluid" />
+            <p style="margin-bottom: 5px; font-size: 18px; font-weight: bold">
+              Easy Booking
+            </p>
+            <p
+              style="
+                font-size: 14px;
+                font-weight: 400;
+                margin-top: 0;
+                line-height: 1.5;
+              "
+            >
+              Seamless booking<br />
+              over a quick call.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="container-fluid container-custom" id="services">
+      <div class="text-section">
+        <h5></h5>
+        <h1>Our Services</h1>
+        <ul style="text-align: justify">
+          <li>Shuttle for Hotels and Corporates</li>
+          <li>Car Rental for Local Usage</li>
+          <li>Car Rental for Outstation Usage</li>
+
+          <li>Car Hire for Event / Conference / Marriage / Party</li>
+
+          <li>Bus Rental for Local / Outstation Usage</li>
+
+          <li>Car Leasing for Corporate Executives</li>
+        </ul>
+        <p style="text-align: justify">
+          GoToGo provides comprehensive transportation solutions: efficient
+          hotel and corporate shuttles, flexible car rentals for local and
+          outstation travel, dedicated car hire for events, and spacious bus
+          rentals for groups. We also offer convenient car leasing options for
+          corporate executives. Our services are reliable, comfortable, and
+          tailored to meet diverse needs, ensuring seamless travel experiences
+          for individuals and organizations alike. Choose GoToGo for all your
+          transportation requirements.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="image-section">
+        <img src="gotogo-in/assets/c3.jpg" alt="Luxury Car" />
+      </div>
+    </div>
+
+    <!-- testmonials -->
+    <div class="container my-5">
+      <h2 class="text-center mb-4" style="font-weight: bold">
+        What Our Customers Say
+      </h2>
+
+      <!-- Testimonials Wrapper -->
+      <div class="testimonial-loop-wrapper">
+        <div class="testimonial-carousel">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "GoToGo offers exceptional service. The cars are clean, and the
+              drivers are highly professional!"
+            </p>
+            <h5 class="testimonial-name">- Rahul Sharma</h5>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "I loved the luxury experience. The booking process was seamless
+              and the ride was very comfortable."
+            </p>
+            <h5 class="testimonial-name">- Priya Mehta</h5>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Reliable and affordable cab service. I always choose GoToGo for
+              my business trips."
+            </p>
+            <h5 class="testimonial-name">- Amit Verma</h5>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Luxurious and safe rides. I highly recommend GoToGo for a premium
+              experience."
+            </p>
+            <h5 class="testimonial-name">- Neha Kapoor</h5>
+          </div>
+
+          <!-- Duplicate testimonials for infinite loop -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "GoToGo offers exceptional service. The cars are clean, and the
+              drivers are highly professional!"
+            </p>
+            <h5 class="testimonial-name">- Rahul Sharma</h5>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "I loved the luxury experience. The booking process was seamless
+              and the ride was very comfortable."
+            </p>
+            <h5 class="testimonial-name">- Priya Mehta</h5>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Reliable and affordable cab service. I always choose GoToGo for
+              my business trips."
+            </p>
+            <h5 class="testimonial-name">- Amit Verma</h5>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Luxurious and safe rides. I highly recommend GoToGo for a premium
+              experience."
+            </p>
+            <h5 class="testimonial-name">- Neha Kapoor</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section -->
+    <!-- <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                <img src="https://gotogo.in/img/map.png" alt="map" class="img-fluid" style="max-width: 100%; height: auto;">
+            </div> -->
+    <!-- footer  -->
+
+    <!-- Our Other Services Section -->
+    <!-- Our Other Services Section -->
+    <!-- Our Other Services Section -->
+<!--  -->
+
+<!-- style for logos  -->
+<style>
+  .brand-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .brand-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(33.33% - 20px);
+    text-decoration: none;
+    transition: transform 0.3s;
+    color: #000;
+    padding: 10px;
+    border-radius: 12px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .brand-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .brand-img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+
+  .brand-text {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* 📱 Mobile View */
+  @media (max-width: 768px) {
+    .brand-card {
+      width: 100%;
+    }
+
+    .brand-img {
+      max-height: 120px;
+    }
+
+    .brand-text {
+      font-size: 15px;
+    }
+  }
+</style>
+
+
+
+    <!-- Our Other Services Section -->
+    <!-- footer <nav></nav> -->
+
+
+<!-- <script>
+  function showToast(message, type = "info") {
+    const toast = document.createElement("div");
+    toast.innerText = message;
+    toast.style.padding = "10px 16px";
+    toast.style.borderRadius = "6px";
+    toast.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+    toast.style.color = "white";
+    toast.style.backgroundColor = type === "success" ? "#4caf50" : "#2196f3";
+    toast.style.fontSize = "14px";
+    toast.style.opacity = "0.95";
+
+    document.getElementById("toast-container").appendChild(toast);
+
+    // Remove after 5 sec
+    setTimeout(() => {
+      toast.remove();
+    }, 5000);
+  }
+
+  async function wakeUpServer() {
+    console.log("🕒 Server is waking up...");
+
+    try {
+      const response = await fetch("https://paymentgatewayforgotogo.onrender.com/ping");
+      if (response.ok) {
+        console.log("✅ Server is awake and will stay active for 15 minutes", "success");
+      } else {
+        console.log("⚠️ Ping failed: Server may still be waking up.");
+      }
+    } catch (error) {
+      console.log("❌ Server ping error: " + error.message);
+    }
+  }
+
+  // Call this on page load
+  window.addEventListener("DOMContentLoaded", wakeUpServer);
+</script> -->
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/bootstrap-icons/font/bootstrap-icons.css"></script>
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4097fc1260.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
