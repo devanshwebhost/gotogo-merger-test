@@ -2,9 +2,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.getElementById("navbar");
     const mobileMenu = document.getElementById("mobileMenu");
-    const burgerBtn = document.getElementById("burgerBtn");
-    const burgerIcon = document.getElementById("burgerIcon");
-    const crossIcon = document.getElementById("crossIcon");
+    // const burgerBtn = document.getElementById("burgerBtn");
+    // const burgerIcon = document.getElementById("burgerIcon");
+    // const crossIcon = document.getElementById("crossIcon");
     const links = navbar?.querySelectorAll("a") || [];
     const navLinks = document.querySelectorAll(".nav-link");
 

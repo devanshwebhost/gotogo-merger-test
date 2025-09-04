@@ -410,7 +410,9 @@ display: inline-block;
     font-size: 1rem;
     color: #34495e; /* Softer dark blue-grey */
     line-height: 1.7;
+    text-align: justify;
     margin-bottom: 30px;
+    padding-right: 5px;
 }
 
 /* --- Booking Steps List --- */
@@ -878,4 +880,91 @@ display: inline-block;
 
         .pagination-dot.active {
             background-color: #007bff;
+        }
+
+        @media (max-width: 600px) {
+            .testimonial-section h2 {
+                font-size: 28px;
+            }
+
+            .review-item img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .review-item .review-text {
+                font-size: 16px;
+                max-width: 100%;
+            }
+            .slide-content .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.btn{
+    padding: 10px 20px;
+}
+.slide-content .subtitle{
+    font-size: 0.8rem;
+}
+.slide-content .description{
+    font-size: 10px;
+}
+.nav-arrow{
+    padding: 0px;
+}
+.btn-colored{
+    padding: 10px;
+}
+.packages-css{
+    margin-bottom: 5px;
+}
+.container-header{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.text-content .title{
+    font-size: 2rem;
+}
+.info-column .description {
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    text-align: justify;
+    padding: 10px;}
+
+    .booking-steps {
+    margin-bottom: 35px;
+    text-align: justify;
+    padding: 10px;}
+   
+    .contact-info {
+    color: #fff;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+.contact-info .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+.contact-info .subtitle {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.contact-form-container{
+    margin-right: 0px ;
+}
+.info-wrapper .title{
+    font-size: 2rem;
+}
+.pack-css{
+    font-size: 2rem;
+}
         }

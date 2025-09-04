@@ -9,85 +9,184 @@
   </head>
   <body class="font-sans text-gray-800">
     <!-- Hero Section -->
-         <!-- Navbar -->
+        <!-- Navbar -->
 <header class="navbar">
   <div class="container">
-    <!-- Logo -->
     <a href="index.html" class="logo">
       <img src="./assets/gotogo final logos/g2g roomsnvenues.png" alt="Logo" />
     </a>
 
-    <!-- Menu -->
     <nav>
       <ul class="desktop-links">
         <li><a href="index.html" class="menu-item">Home</a></li>
-        <li><a href="fleet.html" class="menu-item"  >Fleet</a></li>
+        <li><a href="fleet.html" class="menu-item">Fleet</a></li>
         <li><a href="roomsnvenues.html" class="menu-item active">Rooms & Venues</a></li>
         <li><a href="shuttletoagra.html" class="menu-item">Shuttle To Agra</a></li>
-        <li><a href="airport-shuttle.html" class="menu-item ">Airport Shuttle</a></li>
+        <li><a href="airport-shuttle.html" class="menu-item">Airport Shuttle</a></li>
         <li><a href="partner.html" class="menu-item">Partner</a></li>
         <li><a href="#contact" class="menu-item">Contact</a></li>
       </ul>
     </nav>
+
+    <img src="/burger.png" class="burger" id="burger" alt="menu" />
+
+    <div class="mobile-menu" id="mobile-menu">
+      <img src="/X.png" class="close" id="close" alt="close" />
+      <ul class="mobile-links">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="fleet.html" class="menu-item">Fleet</a></li>
+        <li><a href="roomsnvenues.html" class="menu-item active">Rooms & Venues</a></li>
+        <li><a href="shuttletoagra.html" class="menu-item">Shuttle To Agra</a></li>
+        <li><a href="airport-shuttle.html" class="menu-item">Airport Shuttle</a></li>
+        <li><a href="partner.html" class="menu-item">Partner</a></li>
+        <li><a href="#contact" class="menu-item">Contact</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 
 <!-- CSS -->
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* CSS is fine, no changes needed */
+* {
+  /* overflow-x: clip; */
+}
 
-  .navbar {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    width: 100%;
-    padding: 1px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding: 8px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  .navbar .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.navbar .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .logo img {
-    height: 100px;
-    width: auto;
-  }
+.logo img {
+  height: 70px;
+  width: auto;
+}
 
+/* Desktop Menu */
+.desktop-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  /* margin-top: 1rem; */
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s ease;
+  padding: 6px 10px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  color: #0c52a2; /* heading blue shade */
+  border-bottom: 2px solid #0c52a2;
+}
+
+/* Hamburger */
+.burger {
+  display: none;
+  width: 35px;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 250px;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu .close {
+  width: 30px;
+  margin-left: auto;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.mobile-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mobile-links a:hover {
+  color: #0c52a2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .desktop-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    /* margin-top: 1rem; */
+    display: none;
   }
-
-  .desktop-links li {
-    display: inline-block;
+  .burger {
+    display: block;
   }
-
-  .menu-item {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: 0.3s ease;
-    padding: 6px 10px;
-  }
-
-  .menu-item:hover,
-  .menu-item.active {
-    color: #000; /* tumhara heading ka blue shade */
-    border-bottom: 2px solid #000;
-  }
+}
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const burger = document.getElementById("burger");
+  const closeBtn = document.getElementById("close");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (burger && mobileMenu) {
+    burger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+  }
+
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  }
+
+  // (Optional) close menu when clicking any link
+  document.querySelectorAll(".mobile-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileMenu) {
+        mobileMenu.classList.remove("active");
+      }
+    });
+  });
+});
+</script>
+
     <section
       class="relative bg-cover bg-center h-[80vh] flex items-center justify-center"
       style="
@@ -117,7 +216,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-6 lg:px-20 bg-gray-50">
+    <section id="about" class="md:py-20 py-4 px-6 lg:px-20 bg-gray-50">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Left Content -->
         <div>
@@ -516,11 +615,13 @@
         </div>
       </div>
     </section>
+
+    <!-- footer  -->
         <footer style="background-color: #000; color: #d1d5db; font-family: railway; font-size: 0.875rem;" id="contact">
   <div style="max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; padding-top: 1.5rem; padding-bottom: 1.5rem;">
-    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem;">
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem;" class="footer-css">
       
-      <div style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 0.25rem;">
+      <div style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 0.25rem;" class="footer-contact-css">
         <a href="tel:+917065650650" style="color: inherit; text-decoration: none; transition: color 0.15s;">
           📞 +91 7065 650 650
         </a>
@@ -538,7 +639,7 @@
         </p>
       </div>
 
-      <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 0.5rem;">
+      <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 0.5rem;" class="footer-contact-css">
         <span style="font-weight: 600; color: #fff;">Connect with us</span>
         <div style="display: flex; align-items: center; gap: 0.75rem; margin-top: 0.25rem;">
           <a href="https://www.facebook.com/GOTOGO7065650650" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none;">
@@ -558,6 +659,18 @@
     </div>
   </div>
 </footer>
+<style>
+  @media (max-width: 768px) {
+  .footer-css{
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .footer-contact-css{
+    align-items: center !important;
+    text-align: center !important;
+  }}
+</style>
+
 <script>
   // Add this code inside your script.js file
 
