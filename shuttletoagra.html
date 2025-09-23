@@ -3,7 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Booking Header</title>
+    <title>Shuttle To Agra | GoToGo Travel Solutions</title>
+    <meta
+      name="description"
+      content="Offering seamless travel and stay solutions | Local Rides, Intercity Shuttle, Airport Drops and Hotel & Venue Booking"
+    />
+    <meta property="og:title" content="GoToGo Travel Solution" />
+    <meta
+      property="og:description"
+      content="Offering seamless travel and stay solutions | Local Rides, Intercity Shuttle, Airport Drops and Hotel & Venue Booking"
+    />
+    <meta
+      property="og:image"
+      content="https://www.gotogotravelsolutions.com/assets/gotogo%20final%20logos/g2g%20corporate.png"
+    />
+    <meta property="og:url" content="https://gotogotravelsolutions.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:title" content="GoToGo Travel Solution" />
+    <meta
+      name="twitter:description"
+      content="Offering seamless travel and stay solutions | Local Rides, Intercity Shuttle, Airport Drops and Hotel & Venue Booking"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.gotogotravelsolutions.com/assets/gotogo%20final%20logos/g2g%20corporate.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      href="./assets/gotogo final logos/g2g corporate.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style-shuttle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="navbar.css">
@@ -201,7 +233,7 @@
                 <p class="subtitle">PLAN YOUR TRAVEL WITH US</p>
                 <h1 class="title">SHUTTLE TO AGRA</h1>
                 <p class="description">BOOK YOUR RIDE & ENJOY WONDER OF THE WORLD @ FLAT FEE $100.</p>
-                <a href="tel:+917065650650" class="btn packages-css">VIEW PACKAGES <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#packages" class="btn packages-css">VIEW PACKAGES <i class="fa-solid fa-arrow-right"></i></a>
                 <a href="tel:+917065650650" class="btn-colored">BOOK YOUR TRIP NOW <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
@@ -211,7 +243,7 @@
                 <p class="subtitle">CONTACT US NOW</p>
                 <h1 class="title">VIEW PACKAGES</h1>
                 <p class="description">amazing & wonderful Taj explore with us @ flat fee $100.</p>
-                <a href="tel:+917065650650" class="btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#packages" class="btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -240,7 +272,7 @@
                 covered for you just so that you can have one of the best trips in the
                 two most beautiful cities of India; Agra and Delhi.
             </p>
-            <a href="#" class="btn-colored">Book Your Trip Now</a>
+            <a href="#packages" class="btn-colored">Book Your Trip Now</a>
         </div>
 
         <div class="image-content">
@@ -278,7 +310,7 @@
                 <p>Begin your NCR to Agra Tour Package.</p>
             </div>
             
-            <a href="#" class="btn-colored-circle">Book Now</a>
+            <a href="#packages" class="btn-colored-circle">Book Now</a>
         </div>
     </div>
 </section>
@@ -351,44 +383,114 @@
             
         </div>
         <div class="itinerary-cta">
-          <a href="#" class="btn-colored-circle">Still Have A Question Call Now</a>
+          <a href="tel:+917065650650" class="btn-colored-circle">Still Have A Question Call Now</a>
         </div>
     </div>
 </section>
 
-<section class="contact-section">
+<!-- <section class="contact-section">
     <div class="container">
         <div class="contact-info">
             <h2 class="title">Fill Your Details</h2>
             <p class="subtitle">Our Customer Care Executive Will Assist You Shortly</p>
         </div>
 
-        <div class="contact-form-container">
-            <form action="#" method="POST">
-                <h3>Contact Us Now</h3>
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Name*" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Email*" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Phone*" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message*" required></textarea>
-                </div>
-                <button type="submit" class="btn-colored">Submit Now</button>
-            </form>
+<div class="contact-form-container">
+    <form id="contactForm">
+        <h3>Contact Us Now</h3>
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Name*" required>
         </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email*" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" name="phone" placeholder="Phone*" required>
+        </div>
+        <div class="form-group">
+            <textarea name="message" placeholder="Your Message*" required></textarea>
+        </div>
+        <button type="submit" class="btn-colored" id="submitBtn">Submit Now</button>
+    </form>
+    <div id="formStatus" style="margin-top: 15px; font-weight: bold;"></div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+      // This function will run as soon as the page is ready.
+    const pingServer = async () => {
+        try {
+            // IMPORTANT: Replace this URL with your actual deployed Onrender server URL
+            await fetch('http://localhost:3000/ping');
+            console.log('Ping sent to server to wake it up.');
+        } catch (error) {
+            // We don't show an alert here because it's a background task.
+            // If it fails, the user doesn't need to be interrupted.
+            console.error('Failed to ping server:', error);
+        }
+    };
+
+     // Call the function to wake up the server.
+    pingServer();
+
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Stop the page from reloading
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Submitting...';
+            formStatus.innerText = '';
+
+            // Get data using the "name" attributes
+            const formData = {
+                name: contactForm.querySelector('[name="name"]').value,
+                email: contactForm.querySelector('[name="email"]').value,
+                phone: contactForm.querySelector('[name="phone"]').value, // Added phone field
+                message: contactForm.querySelector('[name="message"]').value,
+            };
+
+            try {
+                // Use your actual server URL here
+                const response = await fetch('http://localhost:3000/submit-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    formStatus.style.color = 'green';
+                    formStatus.innerText = 'Message sent successfully!';
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message || 'An error occurred.');
+                }
+            } catch (error) {
+                formStatus.style.color = 'red';
+                formStatus.innerText = `Error: ${error.message}`;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Submit Now';
+            }
+        });
+    }
+});
+</script>
     </div>
-</section>
+</section> -->
 
 <!-- packages  -->
   <div style="width: 100%; padding: 50px 0;">
 
         <div style="text-align: center; margin-bottom: 40px;">
-            <h1 style="margin: 0; font-size: 36px; font-weight: 600;" class="pack-css">Our Packages</h1>
+            <h1 style="margin: 0; font-size: 36px; font-weight: 600;" class="pack-css" id="packages">Our Packages</h1>
             <p style="margin: 5px 0 0; font-size: 18px; color: #666;">Plans Table</p>
         </div>
 
@@ -410,7 +512,7 @@
                         At Disposal
                     </div>
                     <div style="padding: 30px;">
-                        <a href="#" style="background: linear-gradient(to right, #f4be30, #f4b006); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
+                        <a href="solotravel.html" style="background: linear-gradient(to right, #f4be30, #f4b006); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
                             BOOK NOW
                         </a>
                     </div>
@@ -433,7 +535,7 @@
                         4 years and under: Free
                     </div>
                     <div style="padding: 30px;">
-                        <a href="#" style="background: linear-gradient(to right, #f4be30, #f4be30); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
+                        <a href="perseattravel.html" style="background: linear-gradient(to right, #f4be30, #f4be30); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block;">
                             BOOK NOW
                         </a>
                     </div>
@@ -465,7 +567,7 @@
                 <p>4 years and under : free</p>
             </div>
 
-            <a href="#" class="contact-btn">CONTACT NOW</a>
+            <a href="tel:+917065650650" class="contact-btn">CONTACT NOW</a>
         </div>
     </div>
 </section>
@@ -526,7 +628,7 @@
           GoToGo Travel Solutions
         </h1>
         <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem;">
-          © 2025 All Rights Reserved by GoToGo Travel Solutions LLP | Website developed by Infyplus Consulting
+          © 2025 All Rights Reserved by GoToGo Travel Solutions LLP | Website developed by <a href="https://infyplus.com" style="font-weight: bold; color: blue;" target="_blank"> Infyplus Consulting</a>
         </p>
       </div>
 
@@ -606,6 +708,7 @@
             }
         });
     </script>
+    
     <script src="script-shuttle.js"></script>
 </body>
 </html>

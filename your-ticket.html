@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your GoToGo Ticket</title>
+    <link
+      rel="shortcut icon"
+      href="assets/GoToGo Final Logos/GoToGo Final Logos/G2G Fleet - Inverse Black.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+
+    <!-- At top of your HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .ticket-scale-wrapper {
+        /* Removed fixed height to allow content to dictate height */
+        width: 375px; /* Keep this as the target width for your design */
+        transform-origin: top left;
+      }
+
+      .ticket-wrapper {
+        width: 375px; /* Keep this as the target width for your design */
+        /* Removed fixed height here to allow content to dictate height */
+        background: white;
+        padding: 20px;
+        padding-bottom: 40px; /* Generous bottom padding */
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        /* Removed overflow: hidden; to ensure all content is rendered for PDF */
+      }
+
+      .download-btn {
+        margin: 20px;
+        background: #f1c40f;
+        border: none;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .download-btn:hover {
+        background: #d4ac0d;
+      }
+
+      .ticket-scale-wrapper {
+        width: 375px;
+        margin: 0 auto;
+        transform-origin: top center; /* ✅ Center the scale transform */
+      }
+
+      @media (max-width: 400px) {
+        .ticket-scale-wrapper {
+          transform: scale(0.9);
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .ticket-scale-wrapper {
+          transform: scale(0.8);
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .ticket-scale-wrapper {
+          transform: scale(0.75);
+          margin: 0 auto;
+        }
+      }
+
+      .highlight {
+        background-color: #eebd36;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div style="width: 100%;">
+    <img src="./assets/airport-bg.png" alt="Airport Background" width="100%" style="position: fixed; z-index: -1;">
+</div> -->
+
+    <!-- ✅ Global Notification Container -->
+    <div
+      id="globalNotification"
+      style="
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #0c52a2;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        display: none;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+      "
+    ></div>
+    <!-- notification  -->
+    <script>
+      // ✅ Toast Notification Function
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.style.cssText = `
+      position: fixed; top: 20px; right: 20px;
+      background: #0c52a2; color: white;
+      padding: 12px 20px; border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 9999;
+    `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+      }
+    </script>
+
+    <!-- Alert Box -->
+    <div style="width: 80vw; margin: 2rem auto">
+      <div
+        role="alert"
+        style="
+          background-color: #fff3cd;
+          border: 1px solid #ffeeba;
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+          padding: 1rem;
+          border-radius: 0.375rem;
+          font-family: Arial, sans-serif;
+          color: #856404;
+        "
+      >
+        <strong>📧 Confirmation Email is Important!</strong><br />
+        If you <strong>do not receive the confirmation email</strong>, please
+        contact us immediately at:
+        <a
+          href="tel:+917065650650"
+          style="text-decoration: underline; font-weight: bold; color: #0d6efd"
+          >+91 7065 650 650</a
+        >
+        
+        <p>Visit <a href="index.html">gotogo.in</a> For More</p>
+      </div>
+    </div>
+
+    <button onclick="generatePDF()" class="download-btn">
+      Download Ticket
+    </button>
+
+    <!-- <div style="display: flex; justify-content: center;"> -->
+    <div class="ticket-scale-wrapper" id="ticket">
+      <div class="ticket-wrapper">
+        <div
+          style="
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #eebd36;
+            padding: 0px;
+            gap: 20px;
+          "
+        >
+          <img
+            src="./assets/logo.jpg"
+            alt="GoToGo Logo"
+            style="height: 40px; padding: 4px"
+          />
+          <div style="font-weight: bold; font-size: 12px">
+            SHUTTLE TO AIRPORT
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <div>
+            <div style="color: #737373; font-size: 12px; font-weight: bold">
+              NAMES OF PASSENGERS
+            </div>
+            <ul
+              id="passengerList"
+              style="
+                color: #004aad;
+                font-size: 12px;
+                font-weight: bold;
+                margin-left: -40px;
+                list-style: none;
+              "
+            ></ul>
+          </div>
+
+          <div style="display: flex; align-items: center">
+            <div style="color: #737373; font-size: 12px; font-weight: bold">
+              TICKET #
+            </div>
+            <div
+              class="ticket-number"
+              id="ticket-number"
+              style="
+                border: 2px solid #000;
+                border-radius: 18px;
+                padding: 5px 8px;
+                font-weight: bold;
+                color: #004aad;
+                font-size: 10px;
+              "
+              class="ticket-number"
+            >
+              Loading...
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <div>
+            <div style="color: #737373; font-size: 12px; font-weight: bold">
+              SHUTTLE BOARDING TIME
+            </div>
+            <div
+              style="display: flex; gap: 10px; margin-top: 5px; color: #004aad"
+            >
+              <div
+                data-time="06:00 AM"
+                id="boardingTime"
+                class="boarding-box"
+                style="
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 50%;
+                  border: 2px solid #000;
+                  width: 30px;
+                  height: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2px;
+                  font-size: 12px;
+                "
+              >
+                6<br /><span style="font-size: 10px; font-weight: bold"
+                  >Am</span
+                >
+              </div>
+              <div
+                data-time="07:00 AM"
+                id="boardingTime"
+                class="boarding-box"
+                style="
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 50%;
+                  border: 2px solid #000;
+                  width: 30px;
+                  height: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2px;
+                  font-size: 12px;
+                "
+              >
+                7<br /><span style="font-size: 10px; font-weight: bold"
+                  >Am</span
+                >
+              </div>
+              <div
+                data-time="08:00 AM"
+                id="boardingTime"
+                class="boarding-box"
+                style="
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 50%;
+                  border: 2px solid #000;
+                  width: 30px;
+                  height: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2px;
+                  font-size: 12px;
+                "
+              >
+                8<br /><span style="font-size: 10px; font-weight: bold"
+                  >Am</span
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="color: #737373; font-size: 12px; font-weight: bold">
+              DROP TERMINAL
+            </div>
+            <div
+              style="display: flex; gap: 5px; margin-top: 5px; color: #004aad"
+            >
+              <div
+                data-terminal="(IGI) T1"
+                class="terminal-box"
+                style="
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 50%;
+                  border: 2px solid #000;
+                  width: 30px;
+                  height: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2px;
+                  font-size: 12px;
+                "
+              >
+                T1
+              </div>
+              <div
+                data-terminal="(IGI) T2"
+                class="terminal-box"
+                style="
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 50%;
+                  border: 2px solid #000;
+                  width: 30px;
+                  height: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2px;
+                  font-size: 12px;
+                "
+              >
+                T2
+              </div>
+              <div
+                data-terminal="(IGI) T3"
+                class="terminal-box"
+                style="
+                  font-weight: bold;
+                  text-align: center;
+                  border-radius: 50%;
+                  border: 2px solid #000;
+                  width: 30px;
+                  height: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 2px;
+                  font-size: 12px;
+                "
+              >
+                T3
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+          "
+        >
+          <div>
+            <div style="color: #737373; font-weight: bold">PICKUP DATE</div>
+            <div id="pickupDate" style="font-weight: bold; color: #004aad">
+              Loading...
+            </div>
+          </div>
+          <div>
+            <div style="color: #737373; font-weight: bold">PAYMENT STATUS</div>
+            <div id="paymentStatus" style="font-weight: bold; color: #004aad">No Payment MSG!</div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+          "
+        >
+          <div>
+            <div style="color: #737373; font-weight: bold">PICKUP LOCATION</div>
+            <div id="pickupLocation" style="font-weight: bold; color: #004aad">
+              Loading...
+            </div>
+          </div>
+          <!-- <div>
+                <div style="color: #737373; font-weight: bold;">PICKUP ADDRESS</div>
+                <div id="pickupAddress" style="font-weight: bold; color: #004aad;">Sec 77, GGN</div>
+
+            </div> -->
+        </div>
+
+        <div
+          style="
+            border: 3px solid #eebd36;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 19px;
+          "
+        >
+          <div
+            style="
+              font-weight: bold;
+              font-size: 12px;
+              background: #eebd36;
+              width: 230px;
+              border-radius: 8px;
+              padding: 2px;
+              position: relative;
+              top: -20px;
+              left: 50px;
+            "
+          >
+            Travel Assistance: (+91) 7065 650 650
+          </div>
+          <div style="font-size: 8px; text-align: justify; margin-top: -10px">
+            For
+            <span style="font-weight: bold; color: #737373"
+              >International Travel,</span
+            >
+            please arrive 4 hours before the flight. For
+            <span style="font-weight: bold; color: #737373"
+              >Domestic Travel,</span
+            >
+            please arrive 3 hours before the flight. Please take care of your
+            belongings while on board.
+          </div>
+        </div>
+
+        <div style="margin-top: 10px">
+          <h4 style="margin-bottom: 5px; font-size: 12px">
+            TERMS & CONDITIONS
+          </h4>
+          <ul style="font-size: 8px; padding-left: 20px; text-align: justify">
+            <li>
+              <strong>Seating Policy:</strong> Seats are not pre-assigned.
+              Seating is strictly on a first-come, first-served basis.
+            </li>
+            <li>
+              <strong>Departure Timings:</strong> The shuttle will depart
+              strictly as per the scheduled time. There will be no additional
+              waiting. Passengers are requested to arrive at the pickup point
+              well in advance to avoid missing the shuttle.
+            </li>
+            <li>
+              <strong>No-Show Policy:</strong> In case of a no-show, the booking
+              will be considered fully charged and non-refundable.
+            </li>
+            <li>
+              <strong>Cancellation & Transfer:</strong> This ticket is
+              non-cancellable, non-transferable, and non-refundable under normal
+              circumstances.
+            </li>
+            <li>
+              <strong>Exceptions (Force Majeure):</strong> In the event of
+              unforeseen conditions (e.g., natural disasters, strikes, etc.)
+              affecting service operations, alternate arrangements or refunds
+              will be offered based on the situation and feasibility.
+            </li>
+            <li>
+              <strong>Refund Processing:</strong> If a refund is applicable, it
+              will be processed within 14 working days.
+            </li>
+            <li>
+              <strong>Service Disclaimer:</strong> GoToGo shall not be held
+              responsible for flight delays, traffic disruptions, or external
+              factors impacting pickup/drop timing.
+            </li>
+            <li>
+              <strong>Customer Support:</strong> For assistance, please contact
+              our helpline: +91 7065 650 650.
+            </li>
+          </ul>
+        </div>
+        <div class="footer-image-container" style="text-align: center">
+          <img src="./assets/footer-ticket.png" alt="footer" width="100%" />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-yellow-50 border border-yellow-300 text-yellow-800 p-4 rounded-2xl shadow-sm max-w-xl mx-auto my-4 sm:p-5"
+    >
+      <div class="flex items-start gap-3">
+        
+        <!-- <svg class="w-6 h-6 mt-1 text-yellow-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M13 16h-1v-4h-1m1-4h.01M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0z" />
+    </svg> -->
+        <!-- <div style="padding-bottom: 10px;">
+      <h3 class="text-base font-semibold mb-1">Issue related to booking?</h3>
+      <p class="text-sm leading-relaxed">
+        No need to worry! If you've received a confirmation email, your ticket is already confirmed.
+        Please let our support team know about this issue so they can assist you.
+      </p>
+      <p class="text-sm mt-2 leading-relaxed">
+        Feel free to contact us if you're facing any other problem. We’re here to help you!
+      </p>
+    </div> -->
+      </div>
+    </div>
+
+
+    <script>
+      async function generatePDF() {
+        const element = document.getElementById("ticket");
+        const canvas = await html2canvas(element, {
+          scale: 3,
+          useCORS: true,
+          scrollY: 0,
+        });
+
+        const imgData = canvas.toDataURL("image/jpeg", 1.0);
+        const { jsPDF } = window.jspdf; // 👈 Access jsPDF from global variable
+        const pdf = new jsPDF({
+          orientation: "portrait",
+          unit: "px",
+          format: [canvas.width, canvas.height],
+        });
+
+        pdf.addImage(imgData, "JPEG", 0, 0, canvas.width, canvas.height);
+        pdf.save("GoToGo-Ticket.pdf");
+      }
+    </script>
+
+    <!-- form data to ticket  -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const data = JSON.parse(localStorage.getItem("bookingDetails"));
+        if (!data) return;
+
+        // Show payment status
+        const paymentStatus = data.paymentStatus || "unknown";
+        const paymentStatusDiv = document.getElementById("paymentStatus");
+        if (paymentStatusDiv) {
+          let statusText = "";
+          if (paymentStatus === "success") statusText = "Paid";
+          else if (paymentStatus === "failed") statusText = "Payment Failed";
+          // else if (paymentStatus === "in_progress") statusText = "Payment In Progress";
+          // else statusText = "Pay At Counter";
+          paymentStatusDiv.textContent = statusText;
+        }
+
+        // Highlight Boarding Time
+        document.querySelectorAll(".boarding-box").forEach((box) => {
+          if (box.getAttribute("data-time") === data.boardingTime) {
+            box.classList.add("highlight");
+          }
+        });
+
+        // Highlight Drop Terminal
+        document.querySelectorAll(".terminal-box").forEach((box) => {
+          if (box.getAttribute("data-terminal") === data.terminal) {
+            box.classList.add("highlight");
+          }
+        });
+
+        // Fill NAME (first non-empty name)
+        // document.getElementById("passengerList").innerText =
+        //   data.names || "N/A";
+
+        // Format date: Month Day, Year
+        const formattedDate = new Date(data.pickupDate).toLocaleDateString(
+          "en-US",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }
+        );
+        document.getElementById("pickupDate").innerText = formattedDate;
+
+        // Only first two words of pickup location
+        //   const shortLocation = data.pickupLocation.split(" ").slice(0, 2).join(" ");
+        document.getElementById("pickupLocation").innerText =
+          data.pickupLocation;
+        //   document.getElementById("pickupAddress").innerText = "Sec 77, GGN";vga  j23;[]
+
+        // ✅ Use saved ticket number
+        const ticketNo = data.ticketNumber || "G2G-UNKNOWN";
+        document.getElementById("ticket-number").innerText = ticketNo;
+
+        // ✅ Show all passenger names in <ul id="passengerList">
+        const passengerList = document.getElementById("passengerList");
+        if (passengerList && Array.isArray(data.names)) {
+          passengerList.innerHTML = ""; // clear any old content
+          data.names.forEach((name) => {
+            if (name.trim()) {
+              const li = document.createElement("li");
+              li.textContent = name.trim();
+              passengerList.appendChild(li);
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- local storage clear  -->
+    <!-- <script>
+  (function () {
+    const BOOKING_KEY = "bookingDetails";
+    const EXPIRY_KEY = "bookingExpiry";
+    const EXPIRY_TIME = 24 * 60 * 60 * 1000; // ⏳ 1 Day = 86400000 ms
+    // Or: const EXPIRY_TIME = 4 * 60 * 60 * 1000; // ⏳ 4 Hours = 14400000 ms
+
+    const now = Date.now();
+    const expiry = parseInt(localStorage.getItem(EXPIRY_KEY), 10);
+    const booking = localStorage.getItem(BOOKING_KEY);
+
+    // 1️⃣ If there's booking data and expiry exists
+    if (booking && expiry) {
+      if (now > expiry) {
+        console.log("⛔ Booking expired. Deleting...");
+        localStorage.removeItem(BOOKING_KEY);
+        localStorage.removeItem(EXPIRY_KEY);
+      } else {
+        console.log("✅ Booking still valid.");
+      }
+    }
+
+    // 2️⃣ If booking is present but no expiry set (maybe old save), add expiry now
+    if (booking && !expiry) {
+      localStorage.setItem(EXPIRY_KEY, now + EXPIRY_TIME);
+      console.log("🕒 Expiry set for bookingDetails.");
+    }
+
+    // 3️⃣ Do nothing if no bookingDetails exist
+  })();
+</script> -->
+
+    <!-- generate ticket number  -->
+    <!-- <script>
+  function generateTicketNumber() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+
+    const period = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    const hourStr = hours.toString().padStart(2, '0');
+    const minuteStr = minutes.toString().padStart(2, '0');
+
+    const timePart = `${hourStr}${minuteStr}`;
+    const random = Math.floor(100 + Math.random() * 900);
+
+    return `G2G-${period}-${timePart}-${random}`;
+  }
+
+  // 🔥 Run after DOM is ready
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('.ticket-number').textContent = generateTicketNumber();
+  });
+</script> -->
+  </body>
+</html>
