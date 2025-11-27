@@ -290,10 +290,6 @@
 
 <!-- CSS -->
 <style>
-/* CSS is fine, no changes needed */
-* {
-  /* overflow-x: clip; */
-}
 
 .navbar {
   background: #fff;
@@ -861,9 +857,6 @@
       </form>
     </div>
 
-
-
-    
 
     <!-- Sedan Modal -->
     <div
@@ -1727,7 +1720,7 @@
               return alert("❌ Order creation failed. Please try again.");
 
             const razorpayOptions = {
-              key: "rzp_test_7m2jpATTXnOo2o",  // change rzp_test_7m2jpATTXnOo2o  rzp_live_GguLSrEps04lrr
+              key: "rzp_live_GguLSrEps04lrr",  // change rzp_test_7m2jpATTXnOo2o  rzp_live_GguLSrEps04lrr
               amount: orderData.amount,
               currency: "INR",  // change USD
               order_id: orderData.id,

@@ -884,10 +884,23 @@ function validateChildAge(inputElement) {
 
         // --- 'BOOK NOW' CLICK HANDLER ---
         bookNowBtn.addEventListener('click', async () => {
-            const allRequiredFields = [
-                ...billingForm.querySelectorAll('input[required]'),
-                document.getElementById('terms')
-            ];
+            // --- collect billing required fields (existing) ---
+            const requiredBilling = [...billingForm.querySelectorAll('input[required]')];
+
+            // --- collect traveler fields generated dynamically ---
+            const requiredTravelerFields = [
+              ...document.querySelectorAll('[id^="adult-name-"]'),
+              ...document.querySelectorAll('[id^="adult-age-"]'),
+              ...document.querySelectorAll('[id^="child-name-"]'),
+              ...document.querySelectorAll('[id^="child-age-"]'),
+              // if you later add country-code selects with ids like "code-1" use this:
+              ...document.querySelectorAll('[id^="code"]')
+            ].filter(Boolean);
+
+            const termsCheckbox = document.getElementById('terms');
+
+            // Final combined list of required fields to validate
+            const allRequiredFields = [...requiredBilling, ...requiredTravelerFields, termsCheckbox];
 
             // First, clear any old error styles
             allRequiredFields.forEach(field => field.classList.remove('form-error'));
@@ -895,29 +908,31 @@ function validateChildAge(inputElement) {
 
             // Now, check each required field
             for (const field of allRequiredFields) {
+                // ignore non-existent
+                if (!field) continue;
+
                 const isCheckbox = field.type === 'checkbox';
-                if ((isCheckbox && !field.checked) || (!isCheckbox && !field.value.trim())) {
+                const isHidden = field.offsetParent === null; // skip hidden fields (in collapsed sections)
+                if (isHidden) continue;
+
+                if ((isCheckbox && !field.checked) || (!isCheckbox && !String(field.value || '').trim())) {
                     firstErrorField = field;
                     break; // Stop at the first error
                 }
             }
 
             // --- NEW: REAL-TIME ERROR CLEARING ---
-        const allRequiredFieldsForClearing = [
-            ...billingForm.querySelectorAll('input[required]'),
-            document.getElementById('terms')
-        ];
-
-        allRequiredFieldsForClearing.forEach(field => {
-            const eventType = field.type === 'checkbox' ? 'change' : 'input';
-            field.addEventListener(eventType, () => {
-                // If the field now has a value (or is checked), remove the error class
-                if ((field.type === 'checkbox' && field.checked) || (field.type !== 'checkbox' && field.value.trim() !== '')) {
-                    field.classList.remove('form-error');
-                }
+            const allRequiredFieldsForClearing = [...allRequiredFields];
+            allRequiredFieldsForClearing.forEach(field => {
+                if (!field) return;
+                const eventType = field.type === 'checkbox' ? 'change' : 'input';
+                field.addEventListener(eventType, () => {
+                    if ((field.type === 'checkbox' && field.checked) || (field.type !== 'checkbox' && field.value.trim() !== '')) {
+                        field.classList.remove('form-error');
+                    }
+                }, { once: false });
             });
-        });
-            
+
             // If an error was found, highlight it, scroll to it, and stop everything.
             if (firstErrorField) {
                 firstErrorField.classList.add('form-error');
@@ -981,7 +996,7 @@ function validateChildAge(inputElement) {
                         localStorage.removeItem('travelCart');
                         toggleOverlay();
                     } else {
-                        alert('Cash booking failed. Please try again.');
+                        alert(`Cash booking failed. Error: ${result.message || 'Unknown Error'}`);
                     }
                 } catch (error) {
                     console.error("Cash Booking Error:", error);
