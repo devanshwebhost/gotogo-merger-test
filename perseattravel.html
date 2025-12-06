@@ -373,7 +373,7 @@
             <div class="lg:col-span-2">
                 <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                     <h1 id="package-name" class="text-3xl font-bold">Package Tour Per Seat</h1>
-                    <p class="text-2xl font-semibold text-[#000] mt-2" id="main-price-display">$175</p>
+                    <p class="text-2xl font-semibold text-[#000] mt-2" id="">Startting at just $100</p>
                     <p class="text-sm text-gray-500 mt-1">Category: <span class="text-[#f4be30] font-medium">Package</span></p>
 
                     <div class="mt-6">
@@ -387,13 +387,13 @@
                     
                     <!-- Traveler Selection -->
                     <div id="traveler-selection-container" class="mt-4 border border-gray-200 rounded-lg p-4">
-                        <p class="text-sm text-gray-600 mb-4">You can select up to 15 travelers in total.</p>
+                        <p class="text-sm text-gray-600 mb-4">You can select up to 16 travelers in total.</p>
                         
                         <!-- Adults -->
                         <div class="flex justify-between items-center py-3 border-b">
                             <div>
                                 <p class="font-semibold">Adult (12-99)</p>
-                                <p class="text-xs text-gray-500">Minimum:1, Maximum:15</p>
+                                <p class="text-xs text-gray-500">Minimum:1, Maximum:10</p>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <button onclick="updateCounter('adult', -1)" class="counter-btn h-8 w-8 rounded-full border border-[#f4be30] text-[#f4be30] flex items-center justify-center text-lg font-bold hover:bg-yellow-50 transition">-</button>
@@ -406,7 +406,7 @@
                         <div class="flex justify-between items-center py-3 border-b">
                             <div>
                                 <p class="font-semibold">Child (5-11)</p>
-                                <p class="text-xs text-gray-500">Minimum:0, Maximum:2</p>
+                                <p class="text-xs text-gray-500">Minimum:0, Maximum:4</p>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <button onclick="updateCounter('child', -1)" class="counter-btn h-8 w-8 rounded-full border border-[#f4be30] text-[#f4be30] flex items-center justify-center text-lg font-bold hover:bg-yellow-50 transition">-</button>
@@ -436,64 +436,64 @@
 
                 <!-- Options Container - Hidden by default -->
                 <div id="options-container" class="hidden mt-6 space-y-4">
-                    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="165">
-                        <div class="flex justify-between items-center">
-                            <p class="font-semibold">Option 1 : Car + Guide + Entrance + Lunch</p>
-                            <p class="text-xl font-bold text-gray-800 price-display">$ 330</p>
-                        </div>
-                        <div class="option-details mt-2">
-                             <p class="text-sm text-gray-600">Includes: Car with Driver + Guide + Entrance fees + Lunch at 5 Star Hotel.
-Pickup included</p>
-                             <div class="flex justify-end items-center mt-4 space-x-4">
-                                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
-                                 <button class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
-                             </div>
-                         </div>
-                    </div>
-                     <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="140">
-                        <div class="flex justify-between items-center">
-                            <p class="font-semibold">Option 2 : Car + Guide + Entrance</p>
-                            <p class="text-xl font-bold text-gray-800 price-display">$ 280</p>
-                        </div>
-                        <div class="option-details hidden mt-2">
-                             <p class="text-sm text-gray-600">Includes: Car with Driver + Guide + Entrance fees. But Lunch is not included in this price.
-Pickup included</p>
-                             <div class="flex justify-end items-center mt-4 space-x-4">
-                                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
-                                 <button class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
-                             </div>
-                         </div>
-                    </div>
-                     <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="110">
-                        <div class="flex justify-between items-center">
-                            <p class="font-semibold">Option 3 : Car + Guide</p>
-                            <p class="text-xl font-bold text-gray-800 price-display">$ 220</p>
-                        </div>
-                        <div class="option-details hidden mt-2">
-                             <p class="text-sm text-gray-600">Includes: Car with Driver + Guide. But entrance fees and breakfast are not included in this price.
-Pickup included</p>
-                             <div class="flex justify-end items-center mt-4 space-x-4">
-                                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
-                                 <button class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
-                             </div>
-                         </div>
-                    </div>
-                    <div class="option-box border rounded-lg p-4 cursor-pointer bg-white shadow-sm hover:border-[#f4be30]" onclick="selectOption(this)" data-price-per-adult="100">
-                        <div class="flex justify-between items-start">
-                            <div>
-                               <p class="font-semibold">Option 4 : Car</p>
-                            </div>
-                            <p class="text-xl font-bold text-[#000] price-display">$ 200</p>
-                        </div>
-                         <div class="option-details hidden mt-2">
-                             <p class="text-sm text-gray-600">Includes: Car with Driver only. Guide, entrance fees and Lunch are not included in this price. Pickup included</p>
-                             <div class="flex justify-end items-center mt-4 space-x-4">
-                                 <p class="price-calculation text-sm text-gray-500 font-medium">2 Adult x $ 100</p>
-                                 <button class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
-                             </div>
-                         </div>
-                    </div>
-                </div>
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="175">
+        <div class="flex justify-between items-center">
+            <p class="font-semibold">Option 1 : Car + Guide + Entrance + Lunch</p>
+            <p class="text-xl font-bold text-gray-800 price-display">$ 175</p>
+        </div>
+        <div class="option-details mt-2">
+             <p class="text-sm text-gray-600">Includes: Car with Driver + Guide + Entrance fees + Lunch at 5 Star Hotel. Pickup included</p>
+             <div class="flex justify-end items-center mt-4 space-x-4">
+                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
+                 <button onclick="bookNow(this, event)" class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
+             </div>
+          </div>
+    </div>
+
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="150">
+        <div class="flex justify-between items-center">
+            <p class="font-semibold">Option 2 : Car + Guide + Entrance</p>
+            <p class="text-xl font-bold text-gray-800 price-display">$ 150</p>
+        </div>
+        <div class="option-details hidden mt-2">
+             <p class="text-sm text-gray-600">Includes: Car with Driver + Guide + Entrance fees. But Lunch is not included. Pickup included</p>
+             <div class="flex justify-end items-center mt-4 space-x-4">
+                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
+                 <button onclick="bookNow(this, event)" class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
+             </div>
+          </div>
+    </div>
+
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="120">
+        <div class="flex justify-between items-center">
+            <p class="font-semibold">Option 3 : Car + Guide</p>
+            <p class="text-xl font-bold text-gray-800 price-display">$ 120</p>
+        </div>
+        <div class="option-details hidden mt-2">
+             <p class="text-sm text-gray-600">Includes: Car with Driver + Guide. Entrance fees and breakfast not included. Pickup included</p>
+             <div class="flex justify-end items-center mt-4 space-x-4">
+                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
+                 <button onclick="bookNow(this, event)" class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
+             </div>
+          </div>
+    </div>
+
+    <div class="option-box border rounded-lg p-4 cursor-pointer bg-white shadow-sm hover:border-[#f4be30]" onclick="selectOption(this)" data-price-per-adult="100">
+        <div class="flex justify-between items-start">
+            <div>
+               <p class="font-semibold">Option 4 : Car Only</p>
+            </div>
+            <p class="text-xl font-bold text-[#000] price-display">$ 100</p>
+        </div>
+         <div class="option-details hidden mt-2">
+             <p class="text-sm text-gray-600">Includes: Car with Driver only. Guide, entrance fees and Lunch not included. Pickup included</p>
+             <div class="flex justify-end items-center mt-4 space-x-4">
+                 <p class="price-calculation text-sm text-gray-500 font-medium"></p>
+                 <button onclick="bookNow(this, event)" class="book-now-btn bg-gray-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-[#f4be30] hover:text-black transition-colors">BOOK NOW</button>
+             </div>
+          </div>
+    </div>
+</div>
 
             </div>
         </div>
@@ -543,6 +543,7 @@ Pickup included</p>
   </div>
 </footer>
 
+
 <style>
   @media (max-width: 768px) {
   .footer-css{
@@ -582,137 +583,221 @@ Pickup included</p>
             });
         });
 
-        // --- Booking Logic Script ---
-        const travelerConfig = {
-            adult: { min: 1, max: 15 },
-            child: { min: 0, max: 2 },
-            infant: { min: 0, max: 2 }
-        };
+        
+// --- Booking Logic Script ---
+    const travelerConfig = {
+        adult: { min: 1, max: 10 },
+        child: { min: 0, max: 4 },
+        infant: { min: 0, max: 2 }
+    };
 
-        function updateCounter(type, change) {
-            const countInput = document.getElementById(`${type}-count`);
-            let currentValue = parseInt(countInput.value, 10);
-            const config = travelerConfig[type];
-            let newValue = currentValue + change;
-            if (newValue >= config.min && newValue <= config.max) {
-                countInput.value = newValue;
-            }
-            updateTravelerSummary();
-            updateMainPrice();
-            if (!document.getElementById('options-container').classList.contains('hidden')) {
-                updateAllOptionPrices();
-            }
+    const BASE_CHILD_PRICE = 50;
+
+    // Discount Logic
+    function getDiscount(count) {
+        if (count <= 1) return 0;
+        if (count === 2) return 0.10; // 10%
+        if (count === 3) return 0.15; // 15%
+        if (count === 4) return 0.20; // 20%
+        return 0.25; // 25% for 5+
+    }
+
+    // Calculate total for a specific group
+    function calculateTotalForGroup(count, basePrice) {
+        if (count === 0) return 0;
+        const discount = getDiscount(count);
+        return Math.round(count * basePrice * (1 - discount));
+    }
+
+    // --- HTML Generator for Popup ---
+    function getDiscountHTML() {
+        const adults = parseInt(document.getElementById('adult-count').value) || 0;
+        const children = parseInt(document.getElementById('child-count').value) || 0;
+        
+        let htmlContent = '';
+        let hasDiscount = false;
+
+        const adultDisc = getDiscount(adults); 
+        if (adultDisc > 0) {
+            hasDiscount = true;
+            htmlContent += `<div class="flex items-center gap-2 text-sm mb-1"><i class="fa-solid fa-check-circle text-green-600"></i> <span class="text-gray-700"><strong>${adultDisc * 100}% OFF</strong> applied for ${adults} Adults</span></div>`;
+        }
+
+        const childDisc = getDiscount(children); 
+        if (childDisc > 0) {
+            hasDiscount = true;
+            htmlContent += `<div class="flex items-center gap-2 text-sm"><i class="fa-solid fa-check-circle text-green-600"></i> <span class="text-gray-700"><strong>${childDisc * 100}% OFF</strong> applied for ${children} Children</span></div>`;
+        }
+
+        if (!hasDiscount) return '';
+
+        return `
+            <div class="discount-alert mb-4 bg-yellow-50 border border-[#f4be30] rounded-lg p-3 animate-pulse-slow">
+                <div class="flex items-start gap-3">
+                    <div class="text-[#f4be30] mt-1"><i class="fa-solid fa-gift text-xl"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm">Savings Unlocked! 🎉</h4>
+                        <div class="mt-1">${htmlContent}</div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Update Counters
+    function updateCounter(type, change) {
+        const countInput = document.getElementById(`${type}-count`);
+        let currentValue = parseInt(countInput.value, 10);
+        const config = travelerConfig[type];
+        let newValue = currentValue + change;
+        
+        if (type === 'adult' && newValue > config.max && change > 0) {
+            alert("If you want to book more than 10 seats, please contact us directly.");
+            return;
+        }
+
+        if (newValue >= config.min && newValue <= config.max) {
+            countInput.value = newValue;
         }
         
-        function updateTravelerSummary() {
-            const adultCount = parseInt(document.getElementById('adult-count').value, 10);
-            const childCount = parseInt(document.getElementById('child-count').value, 10);
-            const infantCount = parseInt(document.getElementById('infant-count').value, 10);
-            
-            let summaryText = `${adultCount} Adult${adultCount !== 1 ? 's' : ''}`;
-            if (childCount > 0) {
-                 summaryText += `, ${childCount} Child${childCount !== 1 ? 'ren' : ''}`;
-            }
-             if (infantCount > 0) {
-                 summaryText += `, ${infantCount} Infant${infantCount !== 1 ? 's' : ''}`;
-            }
-            document.getElementById('traveler-summary').textContent = summaryText;
-        }
+        updateTravelerSummary();
+        updateMainPrice();
         
-        const BASE_PRICE_ADULT = 175;
-        const BASE_PRICE_CHILD = 50;
-
-        function updateMainPrice() {
-            const adultCount = parseInt(document.getElementById('adult-count').value, 10);
-            const childCount = parseInt(document.getElementById('child-count').value, 10);
-            const totalPrice = (adultCount * BASE_PRICE_ADULT) + (childCount * BASE_PRICE_CHILD);
-            document.getElementById('main-price-display').textContent = `$${totalPrice}`;
-        }
-
-        document.getElementById('apply-btn').addEventListener('click', () => {
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.classList.remove('hidden');
+        if (!document.getElementById('options-container').classList.contains('hidden')) {
             updateAllOptionPrices();
-        });
-
-        function selectOption(selectedElement) {
-            document.querySelectorAll('.option-box').forEach(box => {
-                box.classList.remove('selected');
-                box.querySelector('.option-details').classList.add('hidden');
-            });
-            selectedElement.classList.add('selected');
-            selectedElement.querySelector('.option-details').classList.remove('hidden');
+            // Live refresh popup
+            const currentSelected = document.querySelector('.option-box.selected');
+            if (currentSelected) injectPopupIntoBox(currentSelected);
         }
-
-        function updateAllOptionPrices() {
-            const adultCount = parseInt(document.getElementById('adult-count').value, 10);
-            const childCount = parseInt(document.getElementById('child-count').value, 10);
-            const CHILD_PRICE_OPTION = 50;
-            
-            document.querySelectorAll('.option-box').forEach(box => {
-                const pricePerAdult = parseInt(box.dataset.pricePerAdult, 10);
-                if (isNaN(pricePerAdult)) return;
-
-                const adultTotal = adultCount * pricePerAdult;
-                const childTotal = childCount * CHILD_PRICE_OPTION;
-                const totalPrice = adultTotal + childTotal;
-
-                box.querySelector('.price-display').textContent = `$ ${totalPrice}`;
-
-                const priceCalcEl = box.querySelector('.price-calculation');
-                if (priceCalcEl) {
-                    let calculationText = `${adultCount} Adult${adultCount !== 1 ? 's' : ''} x $${pricePerAdult}`;
-                    if (childCount > 0) {
-                        calculationText += ` + ${childCount} Child${childCount !== 1 ? 'ren' : ''} x $${CHILD_PRICE_OPTION}`;
-                    }
-                    priceCalcEl.textContent = calculationText;
-                }
-            });
-        }
+    }
+    
+    function updateTravelerSummary() {
+        const adultCount = parseInt(document.getElementById('adult-count').value, 10);
+        const childCount = parseInt(document.getElementById('child-count').value, 10);
+        const infantCount = parseInt(document.getElementById('infant-count').value, 10);
         
-        // --- Function to handle booking ---
-        function bookNow(buttonElement) {
-            event.stopPropagation(); 
-            
-            const selectedOptionBox = buttonElement.closest('.option-box');
+        let summaryText = `${adultCount} Adult${adultCount !== 1 ? 's' : ''}`;
+        if (childCount > 0) summaryText += `, ${childCount} Child${childCount !== 1 ? 'ren' : ''}`;
+        if (infantCount > 0) summaryText += `, ${infantCount} Infant${infantCount !== 1 ? 's' : ''}`;
+        
+        document.getElementById('traveler-summary').textContent = summaryText;
+    }
+    
+    function updateMainPrice() {
+        const adultCount = parseInt(document.getElementById('adult-count').value, 10);
+        const childCount = parseInt(document.getElementById('child-count').value, 10);
+        const OPTION_1_BASE = 175; 
+        const adultTotal = calculateTotalForGroup(adultCount, OPTION_1_BASE);
+        const childTotal = calculateTotalForGroup(childCount, BASE_CHILD_PRICE);
+        document.getElementById('main-price-display').textContent = `$${adultTotal + childTotal}`;
+    }
 
-                     // --- ADD THIS LINE ---
-    const packageName = document.getElementById('package-name').textContent.trim();
-            
-            const adults = parseInt(document.getElementById('adult-count').value, 10);
-            const children = parseInt(document.getElementById('child-count').value, 10);
-            const infants = parseInt(document.getElementById('infant-count').value, 10);
-            
-            const pricePerAdult = parseInt(selectedOptionBox.dataset.pricePerAdult, 10);
-            const CHILD_PRICE_OPTION = 50;
-            const totalPrice = (adults * pricePerAdult) + (children * CHILD_PRICE_OPTION);
-            
-            const cartData = {
-                packageName: packageName,
-                adults: adults,
-                children: children,
-                infants: infants,
-                optionTitle: selectedOptionBox.querySelector('.font-semibold').textContent.trim(),
-                pricePerAdult: pricePerAdult,
-                childPrice: CHILD_PRICE_OPTION,
-                totalPrice: totalPrice
-            };
-            
-            localStorage.setItem('travelCart', JSON.stringify(cartData));
-            window.location.href = 'cart.html';
-        }
+    // --- FIX: Show Popup immediately on Apply ---
+    document.getElementById('apply-btn').addEventListener('click', () => {
+        const optionsContainer = document.getElementById('options-container');
+        optionsContainer.classList.remove('hidden');
+        updateAllOptionPrices();
+        optionsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Find the selected box and trigger the popup immediately
+        const selectedBox = document.querySelector('.option-box.selected');
+        if(selectedBox) injectPopupIntoBox(selectedBox);
+    });
 
-        // --- Initial call to set the summary and add button listeners ---
-        document.addEventListener('DOMContentLoaded', () => {
-            updateTravelerSummary();
-            updateMainPrice();
-
-            document.querySelectorAll('.book-now-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    bookNow(button);
-                });
-            });
+    function selectOption(selectedElement) {
+        document.querySelectorAll('.option-box').forEach(box => {
+            box.classList.remove('selected');
+            box.querySelector('.option-details').classList.add('hidden');
+            const existingAlert = box.querySelector('.discount-alert');
+            if(existingAlert) existingAlert.remove();
         });
+
+        selectedElement.classList.add('selected');
+        const detailsDiv = selectedElement.querySelector('.option-details');
+        detailsDiv.classList.remove('hidden');
+        injectPopupIntoBox(selectedElement);
+    }
+
+    function injectPopupIntoBox(boxElement) {
+        const detailsDiv = boxElement.querySelector('.option-details');
+        const oldPopup = detailsDiv.querySelector('.discount-alert');
+        if (oldPopup) oldPopup.remove();
+        const popupHTML = getDiscountHTML();
+        if (popupHTML) detailsDiv.insertAdjacentHTML('afterbegin', popupHTML);
+    }
+
+    function updateAllOptionPrices() {
+        const adultCount = parseInt(document.getElementById('adult-count').value, 10);
+        const childCount = parseInt(document.getElementById('child-count').value, 10);
+        
+        document.querySelectorAll('.option-box').forEach(box => {
+            const pricePerAdultBase = parseInt(box.dataset.pricePerAdult, 10);
+            if (isNaN(pricePerAdultBase)) return;
+
+            const adultTotal = calculateTotalForGroup(adultCount, pricePerAdultBase);
+            const childTotal = calculateTotalForGroup(childCount, BASE_CHILD_PRICE);
+            const finalTotal = adultTotal + childTotal;
+
+            box.querySelector('.price-display').textContent = `$ ${finalTotal}`;
+
+            const priceCalcEl = box.querySelector('.price-calculation');
+            if (priceCalcEl) {
+                let calculationText = `Adults: $${adultTotal}`;
+                if (childCount > 0) calculationText += ` + Children: $${childTotal}`;
+                calculationText += ` = Total: $${finalTotal}`;
+                priceCalcEl.textContent = calculationText;
+            }
+        });
+    }
+    
+    // --- FIX: Calculating correct data for Cart ---
+    function bookNow(buttonElement, event) {
+        if (event) event.stopPropagation(); 
+        
+        const selectedOptionBox = buttonElement.closest('.option-box');
+        const packageName = document.getElementById('package-name').textContent.trim();
+        
+        const adults = parseInt(document.getElementById('adult-count').value, 10);
+        const children = parseInt(document.getElementById('child-count').value, 10);
+        const infants = parseInt(document.getElementById('infant-count').value, 10);
+        
+        const pricePerAdultBase = parseInt(selectedOptionBox.dataset.pricePerAdult, 10);
+        
+        // 1. Calculate Actual Totals
+        const adultTotal = calculateTotalForGroup(adults, pricePerAdultBase);
+        const childTotal = calculateTotalForGroup(children, BASE_CHILD_PRICE);
+        const finalTotal = adultTotal + childTotal;
+
+        // 2. Calculate "Original" Totals (No Discount) to find Savings
+        const originalTotal = (adults * pricePerAdultBase) + (children * BASE_CHILD_PRICE);
+        const totalSavings = originalTotal - finalTotal;
+
+        // 3. Calculate "Effective Unit Price" so Cart math ($x * qty) works correctly
+        const effectiveAdultPrice = adults > 0 ? (adultTotal / adults) : 0;
+        const effectiveChildPrice = children > 0 ? (childTotal / children) : 0;
+        
+        const cartData = {
+            packageName: packageName,
+            adults: adults,
+            children: children,
+            infants: infants,
+            optionTitle: selectedOptionBox.querySelector('.font-semibold').textContent.trim(),
+            // We pass the effective price so the cart displays "2 Adults x $157.5" instead of "2 Adults x $175"
+            pricePerAdult: effectiveAdultPrice, 
+            childPrice: effectiveChildPrice,
+            totalPrice: finalTotal,
+            totalSavings: totalSavings // Pass this to show on cart page
+        };
+        
+        localStorage.setItem('travelCart', JSON.stringify(cartData));
+        window.location.href = 'cart.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateTravelerSummary();
+        updateMainPrice();
+    });
+    
     </script>
 
 </body>

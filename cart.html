@@ -721,7 +721,24 @@ function validateChildAge(inputElement) {
         const INR_RATE = 82.5;
 
         // Populate Cart Summary
-        let summaryHTML = `
+        // --- Populate Cart Summary ---
+        let summaryHTML = ``;
+
+        // 1. INSERT DISCOUNT DIV IF SAVINGS EXIST
+        if (cartData.totalSavings && cartData.totalSavings > 0) {
+            summaryHTML += `
+                <div class="mb-4 bg-yellow-50 border border-[#f4be30] rounded-lg p-3 flex items-start gap-3">
+                    <div class="text-[#f4be30] text-xl mt-0.5"><i class="fa-solid fa-gift"></i></div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm">Great Choice! 🎉</h4>
+                        <p class="text-sm text-gray-600">You saved <span class="font-bold text-green-600">$${cartData.totalSavings}</span> on this booking with our group discount!</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 2. CART DETAILS
+        summaryHTML += `
             <div class="flex justify-between items-center font-semibold">
                 <p class="text-gray-800">${cartData.packageName}</p>
                 <p class="text-gray-800">$${cartData.totalPrice}</p>
@@ -732,6 +749,8 @@ function validateChildAge(inputElement) {
             </p>
             <div class="text-sm text-gray-500 space-y-1 pl-2">
         `;
+        
+        // Note: We use toFixed(2) to show cents because discounted prices might have decimals (e.g. 157.50)
         if (cartData.adults > 0) {
             summaryHTML += `<p>${cartData.adults} Adult x $${cartData.pricePerAdult.toFixed(2)}</p>`;
         }
@@ -741,6 +760,7 @@ function validateChildAge(inputElement) {
         if (cartData.infants > 0) {
             summaryHTML += `<p>${cartData.infants} Infant x $0.00</p>`;
         }
+        
         summaryHTML += `
             </div>
             <div class="border-t my-4"></div>
@@ -748,11 +768,12 @@ function validateChildAge(inputElement) {
                 <p>Total (USD)</p>
                 <p>$${cartData.totalPrice}/-</p>
             </div>
-            <div class="flex justify-between items-center font-semibold text-md bg-gray-100 p-2 rounded-md">
+            <div class="flex justify-between items-center font-semibold text-md bg-gray-100 p-2 rounded-md mt-2">
                 <p>Amount In (INR)</p>
                 <p>Rs. ${(cartData.totalPrice * INR_RATE).toLocaleString('en-IN')}/-</p>
             </div>
         `;
+        
         cartSummaryContainer.innerHTML = summaryHTML;
 
         // Populate Traveler Information
