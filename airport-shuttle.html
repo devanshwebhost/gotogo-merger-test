@@ -9,6 +9,13 @@
       name="description"
       content="Offering seamless travel and stay solutions | Local Rides, Intercity Shuttle, Airport Drops and Hotel & Venue Booking"
     />
+
+    <!-- Added SEO keywords (page-specific) -->
+    <meta
+      name="keywords"
+      content="airport shuttle, airport transfer, airport drop, airport pickup, airport shuttle service, airport taxi, airport cab, airport transfers, airport shuttle booking, cheap airport transfer, reliable airport transfer, Delhi airport shuttle, NCR airport transfer, intercity shuttle, local rides, hotel booking, GoToGo Travel Solutions"
+    />
+
     <meta property="og:title" content="GoToGo Travel Solution" />
     <meta
       property="og:description"
@@ -241,6 +248,7 @@
       }
     </style>
   </head>
+
   <body>
     <!-- Header -->
 
@@ -960,7 +968,15 @@
         <p style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem;">
           © 2025 All Rights Reserved by GoToGo Travel Solutions LLP | Website developed by <a href="https://infyplus.com" style="font-weight: bold; color: blue;" target="_blank"> Infyplus Consulting</a>
         </p>
+        <!-- Navigation Links -->
+          <div class="footer-links" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+            <a href="./docs/Privacy-Policy.html" style="color: #f4be30; text-decoration: none;">Privacy Policy</a>
+            <a href="./docs/Terms-&-Conditions.html" style="color: #f4be30; text-decoration: none;">Terms & Conditions</a>
+            <a href="./docs/Refund-&-Cancellation-Policy.html" style="color: #f4be30; text-decoration: none;">Refund & Cancellation Policy</a>
+            <a href="./docs/Safety-Protocols.html" style="color: #f4be30; text-decoration: none;">Safety Protocols</a>
+          </div>
       </div>
+
 
       <div style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 0.5rem;" class="footer-contact-css">
         <span style="font-weight: 600; color: #fff;">Connect with us</span>
@@ -1629,7 +1645,7 @@
           payBtn.innerHTML = `
       <div style="display: inline-flex; align-items: center;">
         <div class="spinner" style="width: 18px; height: 18px; border: 3px solid #f3f3f3; border-top: 3px solid white; border-radius: 50%; margin-right: 8px; animation: spin 0.8s linear infinite;"></div>
-        Wait a while we are Processing... ⚠️ PLEASE DO NOT REFRESH OR LEAVE THIS PAGE !
+        We are processing your request. Please do not refresh or leave the page; you will be automatically redirected shortly.
       </div>`;
 
           if (!document.getElementById("btn-spinner-style")) {
@@ -1737,7 +1753,7 @@
                 const loaderDiv = document.createElement("div");
                 loaderDiv.id = "globalLoader";
                 loaderDiv.style.cssText = `position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.95);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;`;
-                loaderDiv.innerHTML = `<div class="spinner" style="border:6px solid #f3f3f3;border-top:6px solid #0c52a2;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;"></div><p style="margin-top:20px;font-size:18px;color:#0c52a2;">Please wait while we generate your ticket... ⚠️ PLEASE DO NOT REFRESH OR LEAVE THIS PAGE !</p>`;
+                loaderDiv.innerHTML = `<div class="spinner" style="border:6px solid #f3f3f3;border-top:6px solid #0c52a2;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;"></div><p style="margin-top:20px;font-size:18px;color:#0c52a2;">Please wait while we generate your ticket... PLEASE DO NOT REFRESH OR LEAVE THIS PAGE !</p>`;
                 document.body.appendChild(loaderDiv);
 
                 const style = document.createElement("style");
