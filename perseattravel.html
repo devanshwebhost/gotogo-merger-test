@@ -437,7 +437,8 @@
 
                 <!-- Options Container - Hidden by default -->
                 <div id="options-container" class="hidden mt-6 space-y-4">
-                    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="175">
+                    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="1">
+                      <!-- //175 -->
                         <div class="flex justify-between items-center">
                             <p class="font-semibold">Option 1 : Car + Guide + Entrance + Lunch</p>
                             <p class="text-xl font-bold text-gray-800 price-display">$ 175</p>
@@ -700,7 +701,7 @@ Pickup included</p>
     function updateMainPrice() {
         const adultCount = parseInt(document.getElementById('adult-count').value, 10);
         const childCount = parseInt(document.getElementById('child-count').value, 10);
-        const OPTION_1_BASE = 175; 
+        const OPTION_1_BASE = 1; //175
         const adultTotal = calculateTotalForGroup(adultCount, OPTION_1_BASE);
         const childTotal = calculateTotalForGroup(childCount, BASE_CHILD_PRICE);
         document.getElementById('main-price-display').textContent = `$${adultTotal + childTotal}`;

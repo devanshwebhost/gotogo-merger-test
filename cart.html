@@ -725,7 +725,7 @@ function validateChildAge(inputElement) {
         bookNowBtn.disabled = false;
 
         const cartData = JSON.parse(cartDataString);
-        const INR_RATE = 82.5;
+        const INR_RATE = 1; // 82.5
 
         // Populate Cart Summary
         // --- Populate Cart Summary ---
@@ -838,7 +838,7 @@ function validateChildAge(inputElement) {
             const mobile = document.getElementById('mobile').value;
 
             const options = {
-                key: 'rzp_test_7m2jpATTXnOo2o',
+                key: 'rzp_live_GguLSrEps04lrr', //rzp_test_7m2jpATTXnOo2o
                 amount: order.amount,
                 currency: order.currency,
                 name: 'GoToGo Travel Solutions',
