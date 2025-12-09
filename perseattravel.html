@@ -437,7 +437,7 @@
 
                 <!-- Options Container - Hidden by default -->
                 <div id="options-container" class="hidden mt-6 space-y-4">
-                    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="1">
+                    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="1.75">
                       <!-- //175 -->
                         <div class="flex justify-between items-center">
                             <p class="font-semibold">Option 1 : Car + Guide + Entrance + Lunch</p>
@@ -458,7 +458,8 @@ Pickup included</p>
                              </div>
                          </div>
                     </div>
-                     <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="150">
+                     <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="1.50">
+                      <!-- //150 -->
                         <div class="flex justify-between items-center">
                             <p class="font-semibold">Option 2 : Car + Guide + Entrance</p>
                             <p class="text-xl font-bold text-gray-800 price-display">$ 150</p>
@@ -472,7 +473,8 @@ Pickup included</p>
                              </div>
                          </div>
                     </div>
-                     <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="120">
+                     <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="1.20">
+                      <!-- //120 -->
                         <div class="flex justify-between items-center">
                             <p class="font-semibold">Option 3 : Car + Guide</p>
                             <p class="text-xl font-bold text-gray-800 price-display">$ 120</p>
@@ -486,7 +488,8 @@ Pickup included</p>
                              </div>
                          </div>
                     </div>
-                    <div class="option-box border rounded-lg p-4 cursor-pointer bg-white shadow-sm hover:border-[#f4be30]" onclick="selectOption(this)" data-price-per-adult="100">
+                    <div class="option-box border rounded-lg p-4 cursor-pointer bg-white shadow-sm hover:border-[#f4be30]" onclick="selectOption(this)" data-price-per-adult="1.00">
+                      <!-- //100 -->
                         <div class="flex justify-between items-start">
                             <div>
                                <p class="font-semibold">Option 4 : Car</p>
@@ -606,7 +609,7 @@ Pickup included</p>
         infant: { min: 0, max: 2 }
     };
 
-    const BASE_CHILD_PRICE = 50;
+    const BASE_CHILD_PRICE = 0.5; //50
 
     // Discount Logic
     function getDiscount(count) {
@@ -618,10 +621,17 @@ Pickup included</p>
     }
 
     // Calculate total for a specific group
-    function calculateTotalForGroup(count, basePrice) {
-        if (count === 0) return 0;
-        const discount = getDiscount(count);
-        return Math.round(count * basePrice * (1 - discount));
+    // function calculateTotalForGroup(count, basePrice) {
+    //     if (count === 0) return 0;
+    //     const discount = getDiscount(count);
+    //     return Math.round(count * basePrice * (1 - discount));
+    // }
+
+     function calculateTotalForGroup(count, basePrice) { 
+       if (count === 0) return 0;
+       const discount = getDiscount(count);
+       const total = count * basePrice * (1 - discount);
+       return Number(total.toFixed(2)); // keep cents, don't round to integer
     }
 
     // --- HTML Generator for Popup ---
@@ -701,10 +711,13 @@ Pickup included</p>
     function updateMainPrice() {
         const adultCount = parseInt(document.getElementById('adult-count').value, 10);
         const childCount = parseInt(document.getElementById('child-count').value, 10);
-        const OPTION_1_BASE = 1; //175
+        const OPTION_1_BASE = 1.75; //175
+        // const adultTotal = calculateTotalForGroup(adultCount, OPTION_1_BASE);
+        // const childTotal = calculateTotalForGroup(childCount, BASE_CHILD_PRICE);
+        // document.getElementById('main-price-display').textContent = `$${adultTotal + childTotal}`;
         const adultTotal = calculateTotalForGroup(adultCount, OPTION_1_BASE);
         const childTotal = calculateTotalForGroup(childCount, BASE_CHILD_PRICE);
-        document.getElementById('main-price-display').textContent = `$${adultTotal + childTotal}`;
+        document.getElementById('main-price-display').textContent = `$${(adultTotal + childTotal).toFixed(2)}`;
     }
 
     // --- FIX: Show Popup immediately on Apply ---
@@ -747,20 +760,24 @@ Pickup included</p>
         const childCount = parseInt(document.getElementById('child-count').value, 10);
         
         document.querySelectorAll('.option-box').forEach(box => {
-            const pricePerAdultBase = parseInt(box.dataset.pricePerAdult, 10);
+            // const pricePerAdultBase = parseInt(box.dataset.pricePerAdult, 10);
+            const pricePerAdultBase = parseFloat(box.dataset.pricePerAdult); // preserve decimals like 1.75
+      
             if (isNaN(pricePerAdultBase)) return;
 
             const adultTotal = calculateTotalForGroup(adultCount, pricePerAdultBase);
             const childTotal = calculateTotalForGroup(childCount, BASE_CHILD_PRICE);
             const finalTotal = adultTotal + childTotal;
 
-            box.querySelector('.price-display').textContent = `$ ${finalTotal}`;
+            // box.querySelector('.price-display').textContent = `$ ${finalTotal}`;
+            box.querySelector('.price-display').textContent = `$ ${finalTotal.toFixed(2)}`;
 
             const priceCalcEl = box.querySelector('.price-calculation');
             if (priceCalcEl) {
                 let calculationText = `Adults: $${adultTotal}`;
                 if (childCount > 0) calculationText += ` + Children: $${childTotal}`;
-                calculationText += ` = Total: $${finalTotal}`;
+                // calculationText += ` = Total: $${finalTotal}`;
+                calculationText += ` = Total: $${finalTotal.toFixed(2)}`;
                 priceCalcEl.textContent = calculationText;
             }
         });
@@ -777,7 +794,8 @@ Pickup included</p>
         const children = parseInt(document.getElementById('child-count').value, 10);
         const infants = parseInt(document.getElementById('infant-count').value, 10);
         
-        const pricePerAdultBase = parseInt(selectedOptionBox.dataset.pricePerAdult, 10);
+        // const pricePerAdultBase = parseInt(selectedOptionBox.dataset.pricePerAdult, 10);
+        const pricePerAdultBase = parseFloat(selectedOptionBox.dataset.pricePerAdult);
         
         // 1. Calculate Actual Totals
         const adultTotal = calculateTotalForGroup(adults, pricePerAdultBase);

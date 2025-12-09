@@ -738,7 +738,7 @@ function validateChildAge(inputElement) {
                     <div class="text-[#f4be30] text-xl mt-0.5"><i class="fa-solid fa-gift"></i></div>
                     <div>
                         <h4 class="font-bold text-gray-800 text-sm">Great Choice! 🎉</h4>
-                        <p class="text-sm text-gray-600">You saved <span class="font-bold text-green-600">$${cartData.totalSavings}</span> on this booking with our group discount!</p>
+                        <p class="text-sm text-gray-600">You saved <span class="font-bold text-green-600">$${Number(cartData.totalSavings).toFixed(2)}</span> on this booking with our group discount!</p>
                     </div>
                 </div>
             `;

@@ -426,7 +426,8 @@
 
                 <!-- Options Container - Hidden by default -->
                 <div id="options-container" class="hidden mt-6 space-y-4">
-    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="1">
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition selected" onclick="selectOption(this)" data-price-per-adult="2.50">
+      <!-- //250 -->
         <div class="flex justify-between items-center">
             <p class="font-semibold">Option 1 : Car + Guide + Entrance + Lunch</p>
             <p class="text-xl font-bold text-gray-800 price-display">$ 250</p>
@@ -440,7 +441,8 @@
           </div>
     </div>
 
-    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="225">
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="2.25">
+      <!-- 225 -->
         <div class="flex justify-between items-center">
             <p class="font-semibold">Option 2 : Car + Guide + Entrance</p>
             <p class="text-xl font-bold text-gray-800 price-display">$ 225</p>
@@ -454,7 +456,8 @@
           </div>
     </div>
 
-    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="195">
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="1.95">
+      <!-- //195 -->
         <div class="flex justify-between items-center">
             <p class="font-semibold">Option 3 : Car + Guide</p>
             <p class="text-xl font-bold text-gray-800 price-display">$ 195</p>
@@ -468,7 +471,8 @@
           </div>
     </div>
 
-    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="175">
+    <div class="option-box border rounded-lg p-4 cursor-pointer hover:border-[#f4be30] transition" onclick="selectOption(this)" data-price-per-adult="1.75">
+      <!-- //175 -->
         <div class="flex justify-between items-start">
             <div>
                <p class="font-semibold">Option 4 : Car Only</p>
@@ -589,8 +593,10 @@
     };
 
     // Incremental Fees (Based on your "Solo" package rules)
-    const EXTRA_ADULT_FEE = 100; // $100 for every adult after the 1st
-    const CHILD_FEE = 87.5;      // $87.5 per child
+    const EXTRA_ADULT_FEE = 1.00; // $100 for every adult after the 1st
+    //100
+    const CHILD_FEE = 0.87;      // $87.5 per child
+    // 87.5
 
     // --- Calculation Logic ---
     // Formula: Base Price + ((Adults - 1) * 100) + (Children * 87.5)
@@ -604,7 +610,8 @@
         
         const childTotal = children * CHILD_FEE;
         
-        return adultTotal + childTotal;
+        // return adultTotal + childTotal;
+        return Number((adultTotal + childTotal).toFixed(2));
     }
 
     // --- Counter Updates ---
@@ -650,7 +657,8 @@
         const childCount = parseInt(document.getElementById('child-count').value, 10);
         
         // Use Option 4 (Car Only, $175) for the preview price at the top
-        const total = calculateTotal(adultCount, childCount, 175);
+        const total = calculateTotal(adultCount, childCount, 1.75);
+        //175
         document.getElementById('main-price-display').textContent = `$${total}`;
     }
 
@@ -680,7 +688,10 @@
         
         document.querySelectorAll('.option-box').forEach(box => {
             // Get the base price (e.g., 250, 225, 195, 175) from HTML
-            const basePrice = parseInt(box.dataset.pricePerAdult, 10);
+            // const basePrice = parseInt(box.dataset.pricePerAdult, 10);
+            const basePrice = parseFloat(box.dataset.pricePerAdult); // preserves decimals like 2.50
+// +            const basePriceInCurrency = basePrice < 10 ? basePrice * 100 : basePrice; // if you keep 2.50 -> convert to 250
+            //  if (isNaN(basePrice)) return;
             if (isNaN(basePrice)) return;
 
             const finalTotal = calculateTotal(adultCount, childCount, basePrice);
@@ -711,7 +722,8 @@
         const children = parseInt(document.getElementById('child-count').value, 10);
         const infants = parseInt(document.getElementById('infant-count').value, 10);
         
-        const basePrice = parseInt(selectedOptionBox.dataset.pricePerAdult, 10);
+        // const basePrice = parseInt(selectedOptionBox.dataset.pricePerAdult, 10);
+        const basePrice = parseFloat(selectedOptionBox.dataset.pricePerAdult);
         
         // Calculate the Final Total to send to Cart
         const finalTotal = calculateTotal(adults, children, basePrice);
@@ -722,10 +734,12 @@
         
         // If 2 adults total is $275, effective price per adult is 137.5
         const effectiveAdultTotal = calculateTotal(adults, 0, basePrice);
-        const effectiveChildTotal = calculateTotal(0, children, 0); // Just child fees
+        // const effectiveChildTotal = calculateTotal(0, children, 0); // Just child fees
+        const effectiveChildTotal = children * CHILD_FEE;
         
         const effectiveAdultPrice = adults > 0 ? (effectiveAdultTotal / adults) : 0;
-        const effectiveChildPrice = children > 0 ? (effectiveChildTotal / children) : 0;
+        // const effectiveChildPrice = children > 0 ? (effectiveChildTotal / children) : 0;
+        const effectiveChildPrice = children > 0 ? CHILD_FEE : 0;
 
         const cartData = {
             packageName: packageName,
@@ -733,8 +747,8 @@
             children: children,
             infants: infants,
             optionTitle: selectedOptionBox.querySelector('.font-semibold').textContent.trim(),
-            pricePerAdult: effectiveAdultPrice,
-            childPrice: effectiveChildPrice,
+            pricePerAdult: Number(effectiveAdultPrice.toFixed(2)), // Keep 2 decimals
+            childPrice: Number(effectiveChildPrice.toFixed(2)),
             totalPrice: finalTotal
         };
         
